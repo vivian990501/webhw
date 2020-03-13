@@ -6,42 +6,73 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <style>
-        .header
+        .item
         {
+            width: 960px;
             display: flex;
-            padding: 0px 10px;
+            flex-wrap: wrap;
+            /* background-color: aquamarine; */
+            margin: auto;
+            position: relative;
         }
-        .header .logo
+        .blank
         {
-            display: inline-block;
-            padding: 20px 10px;
+            width: 440px;
+            height: 290px;
+            /* background-color: rgba(220, 220, 220, .5); */
+            position: absolute;
+            right: 50px;
+            top: 285px;
+        }
+        .blank img
+        {
+            height: 100%;
+            width: 100%;
+        }
+        .fun
+        {
+            position: relative;
+            top: 250px;
+            left: -55px;
+            z-index: 1;
+        }
+        .car
+        {
+            /* position: relative; */
+            margin: auto;
+            position: relative;
+        }
+        .car .small
+        {
+            position: absolute;
+            right: -10px;
+            top :46%;
+        }
+        .Introduction
+        {
+            position: relative;
+            top:-30px;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <a href="#" class="logo">
-            <img src="https://www.toyota.com.tw/asset/img/main/logo2.png?99b93c5c" alt="TOYOTA Logo">
-        </a>
-        <ul>
-            <li>車款展示間</li>
-            <li>購車服務</li>
-            <li>品牌新知</li>
-            <li>安全 / 科技</li>
-            <li>車主專區</li>
-        </ul>
-        <a href="https://www.toyota.com.tw/toyotagazooracing/?utm_source=TOYOTA%20HP&utm_medium=Menu">
-            <img src="" alt="GR">
-        </a>
-        <a href="https://www.facebook.com/TOYOTA.Taiwan/">
-            <img src="" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/toyotatw/">
-            <img src="" alt="Instagrm">
-        </a>
-        <a href="https://www.youtube.com/user/TOYOTA2012TW">
-            <img src="" alt="youtabe">    
-        </a>
+    <div class="item">
+        <div class="fun">
+            <img src="Toyota/asset 59.png" alt="操控樂趣">
+        </div>
+        <div class="blank">
+            <img src="TOyota/asset 41.png" alt="">
+        </div>
+        <div class="car">
+            <img src="Toyota/asset 57.png" alt="">
+            <div class="small">
+                <img src="Toyota/asset 58.png" alt="">
+            </div>
+        </div>
+        <div class="Introduction">
+            <img src="Toyota/asset 60.png" alt="介紹">
+        </div>
     </div>
+
 </body>
 </html>
