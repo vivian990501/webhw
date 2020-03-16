@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/th12reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+        integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous">
+        </script>
+
+    <style type="text/css">
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family:'Lato',sans-serif;
+        }
+        .header {
+            width: 1300px;
+            height: 60px;
+            border-bottom: 1px solid #eee;
+            /* background-color: tomato; */
+            justify-self: center;
+            margin: auto;
+        }
+        .Navigation a, .menu a ,.readmorepic a , .featuredproducts a ,.salepos a ,.productitem a
+        {
+            
+            text-decoration: none;
+            color: #000;
+        }
+        .Navigation {
+            width: 900px;
+            height: 40px;
+            display: flex;
+            /* border: 1px solid red; */
+            margin: 20px auto;
+            position: relative;
+            /* background-color: turquoise; */
+        }
+        
+        .Navigation-account h3 {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .Navigation-account {
+            font-size: 15px;
+            position: absolute;
+            bottom: 10px;
+        }
+
+        .Navigation-features {
+            position: absolute;
+            font-size: 20px;
+            right: 0;
+            bottom: 0;
+        }
+
+        .Navigation-features .fa-search {
+            margin: 0 5px;
+        }
+
+        .Navigation-features .fa-heart {
+            margin: 0 5px;
+        }
+
+        .Navigation-features .fa-shopping-cart {
+            margin: 0 20px 0 5px;
+            position: relative;
+        }
+
+        .shopping {
+            display: inline-block;
+            position: relative;
+        }
+
+        .btn-math {
+            width: 20px;
+            height: 20px;
+            background-color: yellow;
+            color: #000;
+            border: 0;
+            top: -10px;
+            right: -3px;
+            font-size: 5px;
+            position: absolute;
+            border-radius: 50%;
+        }
+        .middle
+        {
+            width: 1300px;
+            margin: auto;
+            border: 1px solid seagreen;
+        }
+        .USD {
+
+            display: inline-block;
+        }
+
+        .USD h3 {
+            display: inline-block;
+            margin: 0 0 0 20px;
+        }
+
+        .USD:hover {
+            color: yellow;
+        }
+        .paste
+        {
+            background-color: white;
+            padding:65px ;
+            position: sticky;
+            top:0px;
+            /* border: 1px solid red; */
+            z-index: 2;
+        }
+        .totalmenu {
+            width: 1170px;
+            display: flex;
+            margin:  0px auto;
+            /* border: 1px solid red; */
+            position: relative;
+        }
+
+        .totalmenu .txt h1 {
+            font-size: 40px;
+            margin: 10px 0 0;
+            left: 0;
+        }
+
+        .totalmenu .txt p {
+            font-size: 21px;
+        }
+        .menu {
+            position: absolute;
+            right: 0px;
+            bottom: 15px;
+
+        }
+        .menu li {
+            display: inline-block;
+            margin: 10px 10px;
+            font-size: 20px;
+        }
+        .readmorepic
+        {
+            display: flex;
+            padding:  0 0 50px 0;
+            /* border: 1px solid slateblue; */
+        }
+        .readmorepic img
+        {
+            width: 85%;
+            
+        }
+        .readmorepic .txt
+        {
+            margin: 60px 30px 0;
+            padding: 0 0 20px;
+            /* border: 1px solid springgreen;  */
+        }
+        .readmorepic .txt .h1
+        {
+            font-size: 100px;
+            margin: 0 0 20px;
+            
+        }
+        .readmorepic .txt .h2
+        {
+            font-size: 65px;
+            color: yellow;
+            
+        }
+        .readmorepic .blank
+        {
+            display: flex;
+            justify-content: flex-end;
+            /* border:  1px solid springgreen; */
+
+        }
+        .readmorepic .blank .item 
+        {
+            padding: 0 10px;
+            
+            
+        }
+        .readmore a
+        {
+            
+            background-color: #000;
+            border: 0 solid #000;
+            color: #fff;
+            font-size: 20px;
+            padding: 20px 40px;
+            border-radius:  5%;
+            margin: 50px 0  0;
+        }
+        .readmore a:hover
+        {
+            background-color: yellow;
+            color: #000;
+        }
+        .readmorepic .nsp
+        {
+            height: 130px;
+        }
+        .none-blank
+        {
+            height: 140px;
+        }
+        .allfoodimgen
+        {
+            width: 1270px;
+            padding: 30px 15px;
+            /* border: 1px solid skyblue; */
+        }
+        .foodpos
+        {
+            display: flex;
+        }
+        .foodimgen
+        {
+            padding: 30px 15px;
+        }
+        .foodimg
+        {
+            position: relative;
+        }
+        .foodimg img
+        {
+            width: 180px;
+            /* border: 1px solid teal; */
+        }
+        .foodtxt
+        {
+            width: 200px;
+            position: absolute;
+            text-align: center;
+            font-size: 20px;
+            bottom: 40px;
+            left:-5px;
+            color: #000;
+            /* border: 1px solid slateblue; */
+        }
+        .foodimgen:hover .foodtxt
+        {
+            color: yellow;
+        }
+
+        .productsthreeimg
+        {
+            width: 1300px;
+        }
+        .threeimg
+        {
+            display: flex;
+            margin: auto;
+            width:1200px;
+        }
+        
+        .threeimg .pic
+        {
+            width: 50%;
+            position: relative;
+            
+        }
+        .oneimg
+        {
+            padding: 0 15px;
+            
+        }
+        .towimg
+        {
+            padding: 0 15px;
+            
+        }
+        .threeimg .txt
+        {
+            color: #fff;
+        }
+        .oneimg .txt
+        {
+            
+            position: absolute;
+            bottom: 70px;
+            left: 60px;
+        }
+        .oneimg img
+        {
+            vertical-align: bottom;
+        }
+        .oneimg .txt h1
+        {
+            width: 400px;
+            padding: 0 0 20px;
+            font-size: 40px;
+
+        }
+        .bottomimg img
+        {
+            vertical-align: bottom;
+        }
+        .towimg
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .topimg .txt h1
+        {
+            font-size: 35px;
+            /* border: 1px solid black; */
+        }
+        .topimg .txt h2
+        {
+            width: 360px;
+            font-size: 35px;
+            /* border: 1px solid black; */
+            padding: 0 0 20px;
+        }
+        .topimg .txt
+        {
+            position: absolute;
+            bottom: 50px;
+            left: 30px;
+        }
+        .bottomimg .txt h1
+        {
+            font-size: 35px;
+            padding: 0 0 15px;
+            /* border: 1px solid black; */
+        }
+        .bottomimg .txt h2
+        {
+            width: 360px;
+            font-size: 16px;
+            /* border: 1px solid black; */
+            padding: 0 0 30px;
+        }
+        .bottomimg .txt{
+            position: absolute;
+            bottom: 120px;
+            left: 39px;
+            
+        }
+        .threeimg .txt a
+        {
+            color: #fff;
+            font-size: 20px;
+        }
+        .productsthreeimg a:hover
+        {
+            color: #000;
+        }
+        .featuredproducts
+        {
+            width: 1300px;
+            margin: 30px 0;
+            /* background-color: tan; */
+        }
+        .featurepos
+        {
+            /* border: 1px solid steelblue; */
+            margin: 0px auto;
+        }
+        .featurestxt
+        {
+            /* border: 1px solid blue; */
+            text-align: center;
+            font-size: 30px;
+            padding: 15px 0;
+        }
+        .featurespic
+        {
+            width: 1170px;  
+            /* background-color: brown; */
+            display: flex;
+            margin: auto;
+        }
+        .featurespic .item 
+        {
+            /* border: 1px solid rgb(40, 68, 92); */
+            padding: 0 10px;
+        }
+        .featurespic .item .txt 
+        {
+            padding: 20px 0 0;
+
+        }
+        .featurespic .item .txt h1
+        {
+            padding: 5px 0 0 ;
+            font-size: 20px;
+            /* border: 1px solid black; */
+        }
+        .featurespic .item .txt a:hover
+        {
+            color: yellow;
+        }
+        .featurespic .item .shopcart
+        {
+            padding: 20px 0  0;
+            /* border: 1px solid; */
+        }
+        
+        .featurespic .item .shopcart a
+        {
+            border: 1px solid black;
+            border-radius: 10%;
+            padding: 5px ;
+            margin-right: 5px;
+            
+        }
+        .sale
+        {
+            width: 1300px;
+        }
+        .salepos
+        {
+            width: 1170px;
+            margin:  auto;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+        .salepos .pic img
+        {
+            padding: 50px;
+            margin: 40px 0;
+        }
+        .salepos .txt 
+        {
+            width: 530px;
+            height: 370px;
+            padding:30px 0;
+            background-color: white;
+            text-align: center;
+            /* border: 1px solid #ccc; */
+            position: absolute;
+            left: 10px;
+            top: 40px;
+        }
+        .salepos .txt h2
+        {
+            width: 530px;
+            font-size: 60px;
+            padding: 0  0 80px;
+            margin: 50px 0 0;
+        }
+        .salepos .txt a
+        {
+            background-color: yellow;
+            border: 0 solid #000;
+            color: #000;
+            padding: 10px 20px;
+            border-radius:  5%;
+            margin: 50px 0  0;
+        }
+        .salepos .nsp{
+            height: 0px;
+        }
+        .salepos .txt a:hover
+        {
+            background-color: #000;
+            color: #fff;
+        }
+        .saleproducts
+        {
+            width: 1300px;
+        }
+        .saleporductspos
+        {
+            width: 1170px;
+            margin: auto;
+            display: flex;
+        }
+        .salepic
+        {
+            width: 590px;
+        }
+        .salepic .pic
+        {
+            padding: 0 10px;
+            position: relative;
+            vertical-align: bottom;
+        }
+        .salepic .pic .txt
+        {
+            position: absolute;
+            color: #fff;
+            width: 400px;
+            font-size: 20px;
+            bottom: 50px;
+            left: 40px;
+        }
+        .salepic .pic .txt h1
+        {
+            padding:  0 0 25px;
+        }
+        .salepic .pic .txt a
+        {
+            
+            color: #fff;
+        }
+        .saleproducts .salepic a:hover
+        {
+            color: #000;
+        }
+        .productslist .toptxt
+        {
+            width: 300px;
+            margin: auto;
+            text-align: center;
+            /* border: 1px solid; */
+            font-size: 30px;
+            padding: 0 0 10px ;
+            margin-bottom:  30px;
+        }
+        .productslist
+        {
+            width: 600px;
+            
+            
+        }
+        .productslist .twoproduct ,.productslist .twoproduct .productitem
+        {
+            display: flex;
+            /* flex-wrap: wrap; */
+        }
+        
+        .productslist .twoproduct .productitem .item
+        {
+            padding: 37px 9px;
+        }
+        .product .item .shopcart a
+        {
+            border: 1px solid black;
+            border-radius: 10%;
+            padding: 10px ;
+            margin-right: 5px;
+            font-size:  15px;
+        }
+        .productitem .txt 
+        {
+            padding: 20px 0 0 ;
+        }
+        .twoproduct .productitem .item h1
+        {
+            padding: 5px 0 25px;
+            font-size: 20px;
+        }
+        .productitem a:hover
+        {
+            color: yellow;
+        }
+        .footer {
+            width: 1300px;
+            margin: auto;
+            background-color: yellow;
+            text-align: center;
+            padding: 20px 0px;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="Navigation">
+            <div class="Navigation-account">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    <h3>My account</h3>
+                </a>
+            </div>
+            <div class="Navigation-features">
+                <a href="#">
+                    <i class="fa fa-search"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-heart"></i>
+                </a>
+                <div class="shopping">
+                    <a href="#">
+                        <i class="fa fa-shopping-cart"></i>
+                        <button class="btn-math">0</button>
+                    </a>
+                </div>
+                <div class="USD">
+                    <h3>USD</h3>
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="middle">
+        <div class="paste">
+            <div class="totalmenu">
+                <div class="txt">
+                    <h1>KARDONE</h1>
+                    <p>H E A L T L Y &nbsp F O O D</p>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li>HOME</li>
+                        <li><a href="#">ABOUST US</a></li>
+                        <li>COLLECTIONS</li>
+                        <li>BLOG</li>
+                        <li>SALE</li>
+                        <li><a href="#">CONTACT US</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="readmorepic">
+            <img src="Fruitjpg/anigif.gif" alt="">
+            <div class="txt">
+                <p class="h1">Fresh and Delicious</p>
+                    <p class="h2">ALL YEAR</p>
+                <div class="blank">
+                    <div class="item">01</div>
+                    <div class="item">02</div>
+                    <div class="item">03</div>
+                </div>
+                <p class="h2">ROUND!</p>
+                <div class="nsp"></div>
+                <div class="readmore">
+                    <a href="#">READ MORE</a>
+                </div>
+            </div>
+        </div>
+        <div class="none-blank"></div>
+        <div class="allfoodimgen">
+            <div class="foodpos">
+                <a href="#">
+                    <div class="foodimgen">
+                        <div class="foodimg">
+                            <img src="Fruit/asset 50.webp" alt="">
+                            <div class="foodtxt">
+                                <h3>
+                                    Fresh Fruits
+                                </h3>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="foodimgen">
+                        <div class="foodimg">
+                            <img src="Fruit/asset 51.webp" alt="">
+                            <div class="foodtxt">
+                                <h3>
+                                    Veggies
+                                </h3>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="foodimgen">
+                        <div class="foodimg">
+                            <img src="Fruit/asset 52.webp" alt="">
+                            <div class="foodtxt">
+                                <h3>
+                                    Fish
+                                </h3>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="foodimgen">
+                        <div class="foodimg">
+                            <img src="Fruit/asset 53.webp" alt="">
+                            <div class="foodtxt">
+                                <h3>
+                                    Nuts & <br> Seeds
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="foodimgen">
+                        <div class="foodimg">
+                            <img src="Fruit/asset 54.webp" alt="">
+                            <div class="foodtxt">
+                                <h3>
+                                    Bread
+                                </h3>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="foodimgen">
+                        <div class="foodimg">
+                            <img src="Fruit/asset 55.webp" alt="">
+                            <div class="foodtxt">
+                                <h3>
+                                    Dairy
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="productsthreeimg">
+            <div class="threeimg">
+                <div class="oneimg">
+                    <div class="pic">
+                        <img src="Fruit/asset 56.webp" alt="">
+                        <div class="txt">
+                            <h1>Best Quality Products</h1>
+                            <a href="#">Shop now</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="towimg">
+                    <div class="topimg">
+                        <div class="pic">
+                            <img src="Fruit/asset 57.webp" alt="">
+                            <div class="txt">
+                                <h1>Hot Deals:</h1>
+                                <h2>CRAZY PRICE $2.99</h2>
+                                <a href="#">Shop now</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="bottomimg">
+                        <div class="pic">
+                            <img src="Fruit/asset 58.webp" alt="">
+                            <div class="txt">
+                                <h1>HURRY UP!</h1>
+                                <h2>Don't miss your chance to be the first!</h2>
+                                <a href="#">Shop now</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="featuredproducts">
+            <div class="featurespos">
+                <div class="featurestxt">
+                    <h1>Featured Products</h1>
+                </div>
+                <div class="featurespic">
+                    <div class="item">
+                        <div class="pic pic1">
+                            <img src="Fruit/asset 24.webp" alt="">
+                        </div>
+                        <div class="txt">
+                            <a href="#">P28 Foods Formulated...</a>
+                            <h1>$26.00 - $20.00</h1>
+                            <div class="shopcart">
+                                <a href="#"><i class="fa fa-shopping-cart"></i>ADD TO CART</a>
+                                <a href="#"><i class="fa fa-eye"></i></a>
+                                <a href="#"><i class="fa fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pic pic2">
+                            <img src="Fruit/asset 26.webp" alt="">
+                        </div>
+                        <div class="txt">
+                            <a href="#">P28 Foods Formulated...</a>
+                            <h1>$29.00 - $36.00</h1>
+                            <div class="shopcart">
+                                <a href="#"><i class="fa fa-shopping-cart"></i>ADD TO CART</a>
+                                <a href="#"><i class="fa fa-eye"></i></a>
+                                <a href="#"><i class="fa fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pic pic3">
+                            <img src="Fruit/asset 28.webp" alt="">
+                        </div>
+                        <div class="txt">
+                            <a href="#">KIND Nuts & Spices,..</a>
+                            <h1>$12.00 - $30.00</h1>
+                            <div class="shopcart">
+                                <a href="#"><i class="fa fa-shopping-cart"></i>CHOOSE VARIANT</a>
+                                <a href="#"><i class="fa fa-eye"></i></a>
+                                <a href="#"><i class="fa fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pic pic4">
+                            <img src="Fruit/asset 30.webp" alt="">
+                        </div>
+                        <div class="txt">
+                            <a href="#">Justin's Nut Butter...</a>
+                            <h1>$33.00 - $22.00</h1>
+                            <div class="shopcart">
+                                <a href="#"><i class="fa fa-shopping-cart"></i>CHOOSE VARIANT</a>
+                                <a href="#"><i class="fa fa-eye"></i></a>
+                                <a href="#"><i class="fa fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sale">
+            <div class="salepos">
+                <div class="txt">
+                    <h2>20% OFF <br>Fresh Berries</h2>
+                    <a href="#">SHOP NOW</a>
+                </div>
+                <div class="pic">
+                    <img src="Fruit/asset 40.webp" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="saleproducts">
+            <div class="saleporductspos">
+                <div class="salepic">
+                    <div class="pic">
+                        <img src="Fruit/asset 59.webp" alt="">
+                        <div class="txt">
+                            <h1>Looking for something special?</h1>
+                            <a href="#">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="productslist">
+                    <div class="toptxt">
+                        On Sale
+                    </div>
+                    <div class="product">
+                        <div class="twoproduct">
+                            <div class="productitem">
+                                <div class="item">
+                                    <div class="pic pic1">
+                                        <img src="Fruit/asset 41.webp" alt="">
+                                    </div>
+                                    <div class="txt">
+                                        <a href="#">P28 Foods Formulated...</a>
+                                        <h1>$29.00 - $36.00</h1>
+                                        <div class="shopcart">
+                                            <a href="#"><i class="fa fa-shopping-cart"></i>CHOOSE VARIANT</a>
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                            <div class="productitem">
+                                <div class="item">
+                                    <div class="pic pic2">
+                                        <img src="Fruit/asset 43.webp" alt="">
+                                    </div>
+                                    <div class="txt">
+                                        <a href="#">P28 Foods Formulated...</a>
+                                        <h1>$30.00</h1>
+                                        <div class="shopcart">
+                                            <a href="#"><i class="fa fa-shopping-cart"></i>ADD TO CART</a>
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <div class="twoproduct">
+                            <div class="productitem">
+                                <div class="item">
+                                    <div class="pic pic3">
+                                        <img src="Fruit/asset 45.webp" alt="">
+                                    </div>
+                                    <div class="txt">
+                                        <a href="#">P28 Foods Formulated...</a>
+                                        <h1>$12.00 - $30.00</h1>
+                                        <div class="shopcart">
+                                            <a href="#"><i class="fa fa-shopping-cart"></i>CHOOSE VARIANT</a>
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="productitem">
+                                <div class="item">
+                                    <div class="pic pic4">
+                                        <img src="Fruit/asset 47.webp" alt="">
+                                    </div>
+                                    <div class="txt">
+                                        <a href="#">P28 Foods Formulated...</a>
+                                        <h1>$23.00</h1>
+                                        <div class="shopcart">
+                                            <a href="#"><i class="fa fa-ban"></i>UNAVILABLE</a>
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        .
+
+        <div class="featuredposts">
+            <div class="postspos">
+                <div class="poststxt">
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="footer">
+        &copy;Healtly Food . Powered by Shopify
+    </div> -->
+</body>
+
+</html>
