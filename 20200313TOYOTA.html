@@ -6,8 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <style>
+        .content
+        {
+            margin: auto;
+            
+        }
         .item
         {
+            
             width: 960px;
             display: flex;
             flex-wrap: wrap;
@@ -15,7 +21,7 @@
             margin: auto;
             position: relative;
         }
-        .blank
+        .item .blank
         {
             width: 440px;
             height: 290px;
@@ -24,31 +30,79 @@
             right: 50px;
             top: 285px;
         }
-        .blank img
+        .item .blank img
         {
             height: 100%;
             width: 100%;
         }
-        .fun
+        .item .fun
         {
             position: relative;
             top: 250px;
             left: -55px;
             z-index: 1;
         }
-        .car
+        .item .car
         {
             /* position: relative; */
             margin: auto;
             position: relative;
         }
-        .car .small
+        .item .car .button
         {
             position: absolute;
             right: -10px;
             top :46%;
         }
-        .Introduction
+        .item.Introduction
+        {
+            position: relative;
+            top:-30px;
+        }
+        .item2
+        {
+            
+            width: 960px;
+            display: flex;
+            flex-wrap: wrap;
+            /* background-color: aquamarine; */
+            margin: auto;
+            position: relative;
+        }
+        .item2 .blank
+        {
+            width: 440px;
+            height: 290px;
+            /* background-color: rgba(220, 220, 220, .5); */
+            position: absolute;
+            right: 50px;
+            top: 285px;
+        }
+        .item2 .blank img
+        {
+            height: 100%;
+            width: 100%;
+        }
+        .item2 .fun
+        {
+            position: relative;
+            top: 250px;
+            left:606px;
+            z-index: 1;
+        }
+        .item2 .car
+        {
+            /* position: relative; */
+            margin: auto;
+            position: relative;
+        }
+        .item2 .car .button
+        {
+            position: absolute;
+            left:-10px;
+            top :46%;
+        }
+        .item2 .Introduction
         {
             position: relative;
             top:-30px;
@@ -56,21 +110,95 @@
     </style>
 </head>
 <body>
-    <div class="item">
-        <div class="fun">
-            <img src="Toyota/asset 59.png" alt="操控樂趣">
-        </div>
-        <div class="blank">
-            <img src="TOyota/asset 41.png" alt="">
-        </div>
-        <div class="car">
-            <img src="Toyota/asset 57.png" alt="">
-            <div class="small">
-                <img src="Toyota/asset 58.png" alt="">
+    <div class="content">
+        <div class="item">
+            <div class="fun">
+                <img src="Toyota/asset 59.png" alt="操控樂趣">
+            </div>
+            <div class="blank">
+                <img src="TOyota/asset 41.png" alt="">
+            </div>
+            <div class="car">
+                <img src="Toyota/asset 57.png" alt="">
+                <a href="#" class="button">
+                    <img src="Toyota/asset 58.png" alt="">
+                </a>
+            </div>
+            <div class="Introduction">
+                <img src="Toyota/asset 60.png" alt="介紹">
             </div>
         </div>
-        <div class="Introduction">
-            <img src="Toyota/asset 60.png" alt="介紹">
+
+        <div class="item2">
+            <div class="fun">
+                <img src="Toyota/asset 62.png" alt="安全守護">
+            </div>
+            <div class="blank">
+                <img src="TOyota/asset 41.png" alt="">
+            </div>
+            <div class="car">
+                <img src="Toyota/asset 61.png" alt="">
+                <a href="#" class="button">
+                    <img src="Toyota/asset 58.png" alt="">
+                </a>
+            </div>
+            <div class="Introduction">
+                <img src="Toyota/asset 63.png" alt="介紹">
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="fun">
+                <img src="Toyota/asset 65.png" alt="乘坐舒適">
+            </div>
+            <div class="blank">
+                <img src="TOyota/asset 41.png" alt="">
+            </div>
+            <div class="car">
+                <img src="Toyota/asset 64.png" alt="">
+                <a href="#" class="button">
+                    <img src="Toyota/asset 58.png" alt="">
+                </a>
+            </div>
+            <div class="Introduction">
+                <img src="Toyota/asset 66.png" alt="介紹">
+            </div>
+        </div>
+
+        <div class="item2">
+            <div class="fun">
+                <img src="Toyota/asset 68.png" alt="以人為本">
+            </div>
+            <div class="blank">
+                <img src="TOyota/asset 41.png" alt="">
+            </div>
+            <div class="car">
+                <img src="Toyota/asset 67.png" alt="">
+                <a href="#" class="button">
+                    <img src="Toyota/asset 58.png" alt="">
+                </a>
+            </div>
+            <div class="Introduction">
+                <img src="Toyota/asset 69.png" alt="介紹">
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="fun">
+                <img src="Toyota/asset 71.png" alt="引以為傲">
+            </div>
+            <div class="blank">
+                <img src="TOyota/asset 41.png" alt="">
+            </div>
+            <div class="car">
+                <img src="Toyota/asset 70.png" alt="">
+                <a href="#" class="button">
+                    <img src="Toyota/asset 58.png" alt="">
+                </a>
+            </div>
+            <div class="Introduction">
+                <img src="Toyota/asset 72.png" alt="介紹">
+            </div>
         </div>
     </div>
 
