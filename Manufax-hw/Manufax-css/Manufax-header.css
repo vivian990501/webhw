@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contact-info
+{
+    
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color:#3b3d42 ;
+    color: #fff;
+    /* padding: 8px 10px; */
+    text-align: center;
+    z-index: 1;
+    
+}
+
+.contact-info .address
+{
+    padding: 8px,10px;
+    margin: 15px 15px;
+}
+.contact-info .phone,.contact-info .community
+{
+    padding: 8px,10px;
+    margin: 15px 5px;
+}
+.contact-info .addresstxt ,.contact-info .phonetxt
+{
+    padding: 3px 10px;
+}
+.adderss-phone .addresstxt,.adderss-phone .phonetxt
+{
+    color: #fff;
+}
+.adderss-phone .fas
+{
+    color: #2ac5f4;
+}
+.contact-info a
+{
+    text-decoration: none;
+}
+.contact-info .community a
+{
+    padding: 6px;
+    color: #fff;
+}
+.contact-info .community a:hover
+{
+    color: #2ac5f4;
+} 
+
+.navigation-img
+{
+    
+    width: 100%;
+    
+    
+    position: relative;
+}
+.background-pic
+{
+
+    margin-top: 110px;
+    width: 100%;
+    
+}
+.background 
+{
+    width: 100%;
+    filter: brightness(.5);
+    height: 880px;
+    object-fit: none;
+}
+.navigation-title
+{
+    position: absolute;
+    top:0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+} 
+.navigation-logo-search
+{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+.navigation .home
+{
+    color: #2ac5f4;
+}
+.navigation-logo-search .search button
+{
+    background:none;
+    border: none;
+}
+.logo{
+    margin: 10px 15px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.navigation-search
+{
+    display: flex;
+    justify-content: space-between;
+    width:  600px;
+}
+.navigation
+{
+    width: 47%;
+    padding-left: 3%;
+}
+
+.navigation nav a{
+
+    padding: 10px  10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    
+}
+.search
+{
+    width: 47%;
+    text-align: right;
+    padding-right: 3%;
+    
+}
+.search button
+{
+    font-size: 20px;
+    color: #fff;
+}
+.search button:hover
+{
+    color: #2ac5f4;
+} 
+.middle-tilte
+{
+    text-align: center;
+    margin-top: 90px;
+}
+.middle-tilte .big-title h1
+{
+    font-size: 35px;
+    color: #fff;
+    margin-bottom: 40px;
+}
+.middle-tilte .small-title h5
+{
+    font-size: 23px;
+    color: #fff;
+    margin-bottom: 35px;
+}
+.seeproject button
+{
+    color: #fff;
+    padding:25px 40px ;
+    background-color: #2ac5f4;
+    border: 0px solid;
+    border-radius: 5%;
+
+}
+.navigation nav
+{
+    display: none;
+}
+#menu-control {
+    position: absolute;
+    left: -100px;
+}
+input:checked~label {
+    color: red;
+}
+.fa-bars
+{
+    font-size: 20px;
+    color: #fff;
+}
+@media screen and (min-width: 768px) {
+    .contact-info
+    {
+        width:100%;
+    }
+    .contact-info .adderss-phone
+    {
+        display: flex;
+        
+        justify-content: space-between;
+    }
+    .background-pic
+    {
+    margin-top: 90px;
+    }
+    .middle-tilte .big-title h1
+    {
+        font-size: 70px;
+        color: #fff;
+        margin-bottom: 40px;
+    }
+    .middle-tilte .small-title h5
+    {
+        font-size: 30px;
+        color: #fff;
+        margin-bottom: 35px;
+    }
+    .logo{
+        /* margin: 10px 15px ; */
+        width: 50%;
+        text-align: left;
+        /* text-align: center; */
+        /* margin-bottom: 20px; */
+    }
+    .navigation
+    {
+        width: 100%;
+        order: 1;
+    }
+    .search
+    {
+        width: 43%;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .navigation nav
+    {
+        display:block;
+        text-align: center;
+    }
+    .navigation label
+    {
+        display: none;
+    }
+    .navigation-title
+{
+    position: absolute;
+    top:10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+} 
+}
+
+
+
+@media screen and (min-width:1200px)
+{
+    .contact-info
+    {
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .contact-info .adderss-phone
+    {
+        display: flex;
+        /* margin: 0px 15px; */
+        
+    }
+    .background-pic
+    {
+        margin-top: 30px;
+    }
+    .middle-tilte .big-title h1
+    {
+        font-size: 120px;
+        color: #fff;
+        margin-bottom: 40px;
+    }
+    .middle-tilte .small-title h5
+    {
+        font-size: 32px;
+        color: #fff;
+        margin-bottom: 35px;
+    }
+    .navigation-logo-search
+    {
+        display: flex;
+
+    }
+
+    .logo{
+        width: 30%;
+    }
+
+    .search
+    {
+        width: 20%;
+        order: 2;
+        display: flex;
+        
+    }
+    .navigation
+    {
+        width: 41.5%;
+        text-align: right;
+        display: flex;
+        align-items: center;
+    }
+    .navigation nav
+    {
+        display:block;
+        text-align: center;
+    }
+    .navigation label
+    {
+        display: none;
+    }
+    .navigation-title
+    {
+        position: absolute;
+        top:20px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    } 
+}

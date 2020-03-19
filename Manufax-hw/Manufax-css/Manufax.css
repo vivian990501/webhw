@@ -1,0 +1,41 @@
+.ourservices
+{
+    margin-top:110px;
+    width: 100%;
+}
+.ourservices .title
+{
+    text-align: center;
+}
+.ourservices .title h2
+{
+    font-size: 30px;
+    position: relative;
+    
+}
+.ourservices .title h2::before{
+    content: '';
+    border-top: 3px solid #2ac5f4; 
+    width: 100px;
+    position: absolute;
+    top: -30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+}
+.ourservices .servicesitems .item
+{
+    text-align: center;
+}
+.ourservices .servicesitems i
+{
+    font-size: 40px;
+    color: #2ac5f4;
+    margin-bottom: 10px;
+}
+.ourservices .servicesitems .itemtitle
+{
+    font-size: 15px ;
+}
