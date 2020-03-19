@@ -405,19 +405,29 @@
     padding: 20px 0 0;
 
 }
-.featurespic .txt #pricesale-a a
+.featurespic .txt .pricesale
 {
     display:block;
 }
-.featurespic .txt #pricesale
+.featurespic .txt #pricesale1
 {
     color: #ccc;
     text-decoration: line-through;
 }
+
+.featurespic .txt #pricesale2
+{
+    color: #ccc;
+    text-decoration: line-through;
+}
+.featurespic .txt #pricesale2-a a
+{
+    display:block;
+}
 .featurespic .item .txt span
 {
     padding: 5px 0 0 ;
-    font-size: 28px;
+    font-size: 21px;
     display: inline-block;
     /* border: 1px solid black; */
 }
