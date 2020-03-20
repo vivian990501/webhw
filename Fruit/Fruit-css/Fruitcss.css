@@ -89,9 +89,11 @@
     display: inline-block;
 }
 
-.USD h3 {
+.USD span {
     display: inline-block;
-    margin: 0 0 0 20px;
+    margin-left: 20px;
+    font-size: 15px;
+
 }
 
 .USD:hover {
