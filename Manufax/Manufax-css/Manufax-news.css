@@ -1,0 +1,152 @@
+.news
+{
+    width: 100%;
+    margin-top:110px;
+    margin-bottom: 75px;
+}
+.news a
+{
+    text-decoration: none;
+}
+.news .title
+{
+    text-align: center;
+}
+.news .title h2
+{
+    font-size: 30px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.news .title h2::before{
+    content: '';
+    border-top: 2px solid #2ac5f4; 
+    width: 65px;
+    position: absolute;
+    top: -30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+}
+.news .container .row
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.news .container .row .pic
+{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.news .container .row .pic img
+{
+    width: 100%;
+    vertical-align: bottom;
+}
+.news .container .row .item
+{
+    margin-bottom: 50px;
+}
+.news .container .row .item .txt
+{
+    padding-bottom: 30px;
+}
+.news .container .row .item .txt h4
+{
+    padding: 5px 0;
+}
+.news .container .row .item .txt a
+{
+    color: #333333;
+}
+.news .container .row .item .txt a:hover
+{
+    color: #2ac5f4;
+}
+.news .container .row .item .txt span a,.news .container .row .item .txt time a
+{
+    color: #2ac5f4;
+    font-size: 14px;
+}
+.news .container .row .item .txt span a:hover
+{
+    color: #888888;
+}
+.news .container .row .item .txt time ,.news .container .row .item .txt span 
+{
+    font-style: italic;
+    
+}
+.news .container .row .item .txt time a:hover
+{
+    color: #888888;
+}
+.news .container .row .item .txt span ,.news .container .row .item .txt time
+{
+    line-height: 34px;
+
+}
+.news .container .row .item .txt span 
+{
+    color: #888888;
+}
+.news .container .row .item .txt time
+{
+    margin-left: 8px;
+}
+.news .container .row .item .txt p 
+{
+    color: #888888;
+    font-size: 18px;
+    font-weight: 300;
+}
+.news .container .button
+{
+    text-align: center;
+    margin-top: 20px;
+}
+.news .container .button a
+{
+    font-size: 18px;
+    padding: 20px 30px;
+    background-color:#2ac5f4 ;
+    color: #fff;
+    border-radius: 3%;
+}
+.news .container .button a:hover
+{
+    background-color: #000;
+}
+.col-1 {width: 8.333333333%;}
+.col-2 {width: 16.666666666%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.333333333%;}
+.col-5 {width: 41.666666666%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.333333333%;}
+.col-8 {width: 66.666666666%;}
+.col-9 {width: 75%;}
+.col-10{width: 83.333333333%;}
+.col-11{width: 91.666666666%;}
+.col-12{width: 100%;}
+@media screen and (min-width: 1200px) {
+    .col-xl-1 {width: 8.333333333%;}
+    .col-xl-2 {width: 16.666666666%;}
+    .col-xl-3 {width: 25%;}
+    .col-xl-4 {width: 33.333333333%;}
+    .col-xl-5 {width: 41.666666666%;}
+    .col-xl-6 {width: 50%;}
+    .col-xl-7 {width: 58.333333333%;}
+    .col-xl-8 {width: 66.666666666%;}
+    .col-xl-9 {width: 75%;}
+    .col-xl-10{width: 83.333333333%;}
+    .col-xl-11{width: 91.666666666%;}
+    .col-xl-12{width: 100%;}
+    .news .container .button
+{
+    margin-top: 80px;
+}
+}

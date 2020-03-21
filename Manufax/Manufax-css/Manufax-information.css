@@ -1,0 +1,200 @@
+.information
+{
+    width: 100%;
+    background-color: #333333;
+}
+.information a
+{
+    text-decoration: none;
+}
+
+.information .container
+{
+    width: 100%;
+}
+.information .container .row
+{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.information .container .row .committed 
+{
+    box-sizing: border-box;
+    padding: 15px 0;
+}
+.information .container .row .committed .pic
+{
+    margin-bottom: 15px;
+}
+
+.information .container .row .committed .pic img
+{
+    vertical-align: bottom;
+}
+.information .container .row .committed .txt
+{
+    box-sizing: border-box;
+    padding-right: 15px;
+    font-size: 16px;
+    color: #888888;
+    line-height: 26px;
+}
+.information .container .row .navigtion
+{
+    box-sizing: border-box;
+    padding: 15px 0;
+}
+
+.information .container .row .navigtion .title
+{
+    width: 100%;
+    padding-top: 25px;
+    margin-bottom: 18px;
+}
+.information .container .row .navigtion .title h2
+{
+    font-size: 18px;
+    color: #fff;
+    line-height: 34px;
+}
+.information .container .row .navigtion .txt li a{
+    color: #2ac5f4;
+    font-size: 16px;
+    line-height: 26px;
+}
+.information .container .row .navigtion .txt li a:hover{
+    color: #fff;
+}
+.information .container .row .navigtion .txt li .active{
+    color: #fff;
+}
+.information .container .row .navigtion .txt li .active:hover{
+    color: #fff;
+}
+.information .container .row .recent
+{
+    width: 100%;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+.information .container .row .recent span
+{
+    display: block;
+}
+.information .container .row .recent h2
+{
+    font-size: 18px;
+    margin-bottom: 18px;
+    color: #fff;
+    line-height: 34px;
+}
+.information .container .row .recent .comments a
+{
+    font-size: 16px;
+    color: #fff;
+    line-height: 26px;
+}
+.information .container .row .recent .comments a:hover
+{
+    color: #2ac5f4;
+}
+.information .container .row .recent .comments span,.information .container .row .recent .comments span a
+{
+    font-size: 14px;
+    color: #888888;
+    line-height: 23px;
+    font-style: italic;
+}
+.information .container .row .contacts
+{
+    width: 100%;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+.information .container .row .contacts h2
+{
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: #fff;
+    line-height: 34px;
+}
+.information .container .row .contacts address
+{
+    display: inline;
+}
+
+.information .container .row .contacts .address
+{
+    color: #888888;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 16px;
+}
+.information .container .row .contacts .phones ,.information .container .row .contacts .email
+{
+    color: #888888;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 8px;
+}
+.information .container .row .contacts .phones li a,.information .container .row .contacts .email a
+{
+    color: #2ac5f4;
+}
+.information .container .row .contacts .phones li a:hover
+{
+    color: #fff;
+}
+.information .container .row .contacts .email a:hover
+{
+    color: #fff;
+}
+
+.col-1 {width: 8.333333333%;}
+.col-2 {width: 16.666666666%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.333333333%;}
+.col-5 {width: 41.666666666%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.333333333%;}
+.col-8 {width: 66.666666666%;}
+.col-9 {width: 75%;}
+.col-10{width: 83.333333333%;}
+.col-11{width: 91.666666666%;}
+.col-12{width: 100%;}
+@media screen and (min-width: 1200px) {
+    .col-xl-1 {width: 8.333333333%;}
+    .col-xl-2 {width: 16.666666666%;}
+    .col-xl-3 {width: 25%;}
+    .col-xl-4 {width: 33.333333333%;}
+    .col-xl-5 {width: 41.666666666%;}
+    .col-xl-6 {width: 50%;}
+    .col-xl-7 {width: 58.333333333%;}
+    .col-xl-8 {width: 66.666666666%;}
+    .col-xl-9 {width: 75%;}
+    .col-xl-10{width: 83.333333333%;}
+    .col-xl-11{width: 91.666666666%;}
+    .col-xl-12{width: 100%;}
+    .information .container .row .navigtion .title {
+        padding-top: 0px;
+    }
+    .information .container div [class*=col]
+    {
+        box-sizing: border-box;
+        padding-right: 0px;
+        padding-left:0px;
+    }
+    .information .container .row .committed 
+    {
+        padding: 0px 25px 50px 0px;
+    }
+    .information .container .row .navigtion, .information .container .row .recent
+    {
+        padding: 25px 25px 50px 0px;
+    }
+    .information .container .row .contacts
+    {
+        padding: 25px 25px 50px 25px;
+    }
+}

@@ -1,0 +1,126 @@
+.history
+{
+    padding: 75px 0;
+    width: 100%;
+}
+
+.history .container
+{
+    width: 100%;
+    max-width: 1355px;
+}
+.history .container .row
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.history .container .row .pic
+{
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+.history .container .row .pic img{
+    width: 100%;
+    vertical-align: bottom;
+}
+.history .container .row .txt h2
+{ 
+    padding-top: 60px;
+    margin-bottom: 25px;
+    position: relative;
+}
+.history .container .row .txt h2::before{
+    content: '';
+    border-top: 2px solid #2ac5f4; 
+    width: 50px;
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 1;
+}
+.history .container .row .txt h3
+{ 
+    color: #888888;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.history .container .row .txt p
+{ 
+    color: #888888;
+    font-size: 16px;
+    margin-bottom: 70px;
+}
+
+.history .container .row .txt a
+{
+    padding: 20px 40px;
+    background-color:#2ac5f4 ;
+    border-radius: 3%;
+    text-decoration: none;
+    color: #fff;
+}
+.photos .container .row 
+
+
+
+
+
+.col-1 {width: 8.333333333%;}
+.col-2 {width: 16.666666666%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.333333333%;}
+.col-5 {width: 41.666666666%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.333333333%;}
+.col-8 {width: 66.666666666%;}
+.col-9 {width: 75%;}
+.col-10{width: 83.333333333%;}
+.col-11{width: 91.666666666%;}
+.col-12{width: 100%;}
+@media screen and (min-width: 1200px) {
+    .col-xl-1 {width: 8.333333333%;}
+    .col-xl-2 {width: 16.666666666%;}
+    .col-xl-3 {width: 25%;}
+    .col-xl-4 {width: 33.333333333%;}
+    .col-xl-5 {width: 41.666666666%;}
+    .col-xl-6 {width: 50%;}
+    .col-xl-7 {width: 58.333333333%;}
+    .col-xl-8 {width: 66.666666666%;}
+    .col-xl-9 {width: 75%;}
+    .col-xl-10{width: 83.333333333%;}
+    .col-xl-11{width: 91.666666666%;}
+    .col-xl-12{width: 100%;}
+
+    .history .container .row .col-xl-6:first-child
+    {
+        order: 1;
+    }
+    .history .container div [class*=col]
+    {
+        box-sizing: border-box;
+        padding-right: 0px;
+        padding-left:0px;
+    }
+    .history .container .row .pic
+    {
+        padding:  0 15px;
+        margin-bottom: 0px;
+    }
+    .history .container .row .txt h2
+{ 
+    margin-bottom: 50px;
+}
+.history .container .row .txt h3
+{ 
+    font-size: 18px;
+}
+.history .container .row .txt p
+{ 
+    font-size: 18px;
+    margin-bottom: 170px;
+}
+}

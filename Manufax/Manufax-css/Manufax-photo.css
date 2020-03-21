@@ -1,0 +1,81 @@
+.photos
+{
+    width: 100%;
+    margin-bottom: ;
+}
+
+.photos .container
+{
+    width: 100%;
+}
+.photos .container .row
+{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.photos .container .row .pic
+{
+    width: 100%;
+    height: 358px;
+    position: relative;
+    /* background-image:url('/Manufax/Manufax-photo/asset 13.jpeg'); */
+}
+
+.photos .container .row .pic img
+{
+    width: 100%;
+    height: 100%;
+    filter: brightness(.5);
+}
+.photos .container .row .txt
+{
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+}
+
+
+.photos .container div [class*=col]
+{
+    box-sizing: border-box;
+    padding-right: 0px;
+    padding-left:0px;
+}
+
+
+
+
+
+.col-1 {width: 8.333333333%;}
+.col-2 {width: 16.666666666%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.333333333%;}
+.col-5 {width: 41.666666666%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.333333333%;}
+.col-8 {width: 66.666666666%;}
+.col-9 {width: 75%;}
+.col-10{width: 83.333333333%;}
+.col-11{width: 91.666666666%;}
+.col-12{width: 100%;}
+@media screen and (min-width: 1200px) {
+    .col-xl-1 {width: 8.333333333%;}
+    .col-xl-2 {width: 16.666666666%;}
+    .col-xl-3 {width: 25%;}
+    .col-xl-4 {width: 33.333333333%;}
+    .col-xl-5 {width: 41.666666666%;}
+    .col-xl-6 {width: 50%;}
+    .col-xl-7 {width: 58.333333333%;}
+    .col-xl-8 {width: 66.666666666%;}
+    .col-xl-9 {width: 75%;}
+    .col-xl-10{width: 83.333333333%;}
+    .col-xl-11{width: 91.666666666%;}
+    .col-xl-12{width: 100%;}
+
+}
