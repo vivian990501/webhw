@@ -1,0 +1,13 @@
+.Products-On-Sales .txt
+{
+    margin: 30px 0;
+    font-size: 40px;
+}
+.Products-On-Sales.pic
+{
+    box-sizing: border-box;
+}
+.Products-On-Sales .card-body 
+{
+    box-sizing: border-box;
+}

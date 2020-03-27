@@ -1,0 +1,55 @@
+.ShowCase
+{
+    margin: 100px 0;
+    width: 100%;
+}
+.ShowCase .col-12
+{
+    margin: 15px 0px;
+    
+}
+.ShowCase a{
+    text-decoration: none;
+    border-bottom: 1px solid #b9b9b9;
+    display: block;
+    padding: 20px 0;
+}
+.ShowCase a.a1
+{
+    color: #7dd0dc;
+    border-top:1px solid #7dd0dc;
+    
+} 
+.ShowCase .a2
+{
+    color: #d4bcb5;;
+    border-top:1px solid;
+} 
+.ShowCase .a3
+{
+    color: #ffa396;
+    border-top:1px solid;
+} 
+.ShowCase .title 
+{
+    margin: 20px 0;
+}
+.ShowCase .title h3
+{
+    font-size: 60px;
+}
+.ShowCase .txt p{
+    margin-top: 4px;
+    color: #333439;
+    font-size: 20px;
+}
+@media screen and (min-width:992px)
+{
+    .ShowCase .txt p{
+        font-size: 14pxpx;
+    }
+    .ShowCase .title h3
+{
+    font-size: 40px;
+}
+}

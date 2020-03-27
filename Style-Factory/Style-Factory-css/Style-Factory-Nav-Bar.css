@@ -1,0 +1,23 @@
+div.navbar-collapse ul.navbar-nav li.nav-item a
+{
+    color: #000;
+}
+
+@media screen and (min-width:992px )
+{
+    div.navbar-collapse ul.navbar-nav li.nav-item+ li.nav-item>a::before
+    {
+        /* display: none; */
+        padding-right: 1rem;
+        content: '/';
+        font-size: 1rem;
+        color: #000;
+    }
+    .NavBar
+    {
+        position: sticky;
+        top:0;
+        z-index: 2;
+        background-color: #fff;
+    }
+}
