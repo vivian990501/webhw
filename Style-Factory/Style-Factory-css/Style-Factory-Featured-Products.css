@@ -1,5 +1,86 @@
-.Featured-Products .txt
+.Featured-Products .title-Featured-Products
 {
     margin: 30px 0;
     font-size: 40px;
+}
+.Featured-Products .pic
+{
+    box-sizing: border-box;
+}
+.Featured-Products .card
+{
+    flex-direction: row;
+    box-sizing: border-box;
+}
+.Featured-Products .logo-new
+{
+    top: 0px;
+    z-index: 2;
+    background: #ffa396;
+    padding: 3px 6px;
+    color: #fff;
+}
+.Featured-Products .card-body h5 a
+{
+    font-size: 20px;
+    color: #181a1f;
+    text-decoration: none;
+}
+.Featured-Products .card-body h5 a:hover
+{
+    color: #7dd0dc;
+}
+.Featured-Products .card-body span
+{
+    
+    font-size: 24px;
+    margin: 0 0 20px;
+    color: #181a1f;
+    text-decoration: none;
+}
+.Featured-Products .card-body span .price-not
+{
+    text-decoration: line-through;
+    color: #a3a3a3;
+}
+.Featured-Products .card-body .add-shopping
+{
+    padding: 7px 19px;
+    border: 2px solid #000;
+}
+.Featured-Products .card-body .add-shopping:hover
+{
+    color: #fff;
+    background-color: #000;
+}
+.Featured-Products .card-body .icon  a
+{
+    color: #a3a3a3;
+}
+.Featured-Products .card-body .icon  a :hover
+{
+    color: #ffa396;
+}
+.Featured-Products .logo-sales
+{
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    background: #7dd0dc;
+    padding: 3px 6px;
+    color: #fff;
+    display: inline-block;
+}
+
+@media screen and  (min-width: 1200px)
+{
+
+    .Featured-Products .card
+    {
+    flex-direction: column;
+    }
+    .Featured-Products .logo-new
+{
+    top: 14px;
+}
 }

@@ -3,6 +3,7 @@
     margin: 100px 0;
     width: 100%;
 }
+
 .ShowCase .col-12
 {
     margin: 15px 0px;
@@ -18,18 +19,59 @@
 {
     color: #7dd0dc;
     border-top:1px solid #7dd0dc;
-    
+    position: relative;
 } 
+.ShowCase a.a1 ::before{
+    content: '';
+    width: 50px;
+    height: 5px;
+    border: 1px solid #7dd0dc;
+    background-color: #7dd0dc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 99;
+}
 .ShowCase .a2
 {
     color: #d4bcb5;;
     border-top:1px solid;
+    position: relative;
 } 
+.ShowCase a.a2 ::before{
+    content: '';
+    width: 50px;
+    height: 5px;
+    border: 1px solid #d4bcb5;
+    background-color: #d4bcb5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 99;
+}
 .ShowCase .a3
 {
     color: #ffa396;
     border-top:1px solid;
+    position: relative;
 } 
+.ShowCase a.a3 ::before{
+    content: '';
+    width: 50px;
+    height: 5px;
+    border: 1px solid #ffa396;
+    background-color: #ffa396;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 99;
+}
 .ShowCase .title 
 {
     margin: 20px 0;
@@ -43,6 +85,8 @@
     color: #333439;
     font-size: 20px;
 }
+
+
 @media screen and (min-width:992px)
 {
     .ShowCase .txt p{

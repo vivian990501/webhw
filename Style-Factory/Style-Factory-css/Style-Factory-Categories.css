@@ -3,16 +3,34 @@
     margin: 30px 0;
     font-size: 26px;
 }
-
 .Categories a
+{
+    text-decoration: none;
+    
+}
+.Categories .card-body .btn-products
 {
     border: 2px solid #000;
     color: #000;
+    
 }
-.Categories a:hover
+.Categories .card  img
+{
+    opacity: .5;
+}
+.Categories .card-body .btn-products:hover
 {
     background-color: #000;
     color: #fff;
+}
+.Categories .card-body
+{
+    padding-top: 20px;
+    padding-bottom: 65px;
+}
+.Categories .card-body h5
+{
+    color: #000;
 }
 @media screen and (min-width:992px)
 {

@@ -1,0 +1,38 @@
+.Information
+{
+    background: #181a1f;
+    color: #d3d3d3;
+}
+.Information .committed .pic img
+{
+    background-color: rgba(0, 0,0,.5);
+}
+.Information .row
+{
+    padding-bottom: 125px;
+}
+.Information .committed .txt p
+{
+    font-weight: 300;
+    font-size: 20px;
+
+}
+.Information .title h3
+{
+    color: #fff;
+    font-size: 20px;
+}
+.Information .txt{
+    margin-top: 26px;
+    line-height: 45px;
+    font-size: 20px;
+}
+.Information .txt a
+{
+    text-decoration: none;
+    color: #d3d3d3;
+}
+.Information .txt a:hover
+{
+    color: #7dd0dc;
+}

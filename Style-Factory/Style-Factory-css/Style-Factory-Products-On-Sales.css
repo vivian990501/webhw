@@ -1,4 +1,4 @@
-.Products-On-Sales .txt
+.Products-On-Sales .txt h5
 {
     margin: 30px 0;
     font-size: 40px;
@@ -10,4 +10,85 @@
 .Products-On-Sales .card-body 
 {
     box-sizing: border-box;
+}
+.Products-On-Sales .card
+{
+    flex-direction: row;
+    box-sizing: border-box;
+}
+.Products-On-Sales .logo-new
+{
+    top: 0px;
+    z-index: 2;
+    background: #ffa396;
+    padding: 3px 6px;
+    color: #fff;
+}
+.Products-On-Sales .logo-sales
+{
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    background: #7dd0dc;
+    padding: 3px 6px;
+    color: #fff;
+    display: inline-block;
+}
+.Products-On-Sales h5 a
+{
+    font-size: 20px;
+    color: #181a1f;
+    text-decoration: none;
+}
+.Products-On-Sales .card-body h5 a:hover
+{
+    color: #7dd0dc;
+}
+.Products-On-Sales .card-body span
+{
+    color: #a3a3a3;
+    font-size: 24px;
+    margin: 0 0 20px;
+}
+.Products-On-Sales .card-body span .price-not
+{
+    text-decoration: line-through;
+}
+.Products-On-Sales .card-body span .price-sales
+{
+    color: #181a1f;
+    text-decoration: none;
+}
+.Products-On-Sales .card-body .add-shopping
+{
+    padding: 7px 19px;
+    border: 2px solid #000;
+}
+.Products-On-Sales .card-body .add-shopping:hover
+{
+    color: #fff;
+    background-color: #000;
+}
+.Products-On-Sales .card-body .icon  a
+{
+    color: #a3a3a3;
+}
+.Products-On-Sales .card-body .icon  a :hover
+{
+    color: #ffa396;
+}
+@media screen and  (min-width: 1200px)
+{
+
+    .pic {
+        flex: 0 0 0;
+    }
+    .Products-On-Sales .card
+    {
+    flex-direction: column;
+    }
+    .Products-On-Sales .logo-new
+{
+    top: 14px;
+}
 }

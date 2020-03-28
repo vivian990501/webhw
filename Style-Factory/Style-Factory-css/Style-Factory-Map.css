@@ -1,0 +1,14 @@
+.Map map
+{
+    width: 50%;
+} 
+.Map map iframe{
+
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+.Map
+{
+    background-color:	rgb(53, 70, 107);
+}

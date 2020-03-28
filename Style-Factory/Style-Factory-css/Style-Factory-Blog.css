@@ -1,0 +1,63 @@
+.Blog .row .title-blog h2
+{
+    font-size: 40px;
+    margin: 30px 0;
+}
+.Blog .card  .date-blog
+{
+    border-top: 1px solid #e9e9e9;
+    
+}
+
+.Blog .card .about-blog .comments::before{
+    content: '\2022';
+    left: 0;
+    top: 0;
+    display: inline-block;
+    line-height: 16px;
+    font-size: 18px;
+    color: #7a7a7a;
+}
+.Blog .card .date-blog ::before
+{
+    content: '';
+    border: 0px solid  #181a1f;
+    background-color: #181a1f;
+    width: 30px;
+    height: 4px;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    position: absolute;
+    z-index: 3;
+}
+.Blog .card .date-blog time
+{
+    font-size: 24px;
+}
+.Blog .card .about-blog
+{
+    color: #7a7a7a;
+}
+
+.Blog .card .card-body .card-title a
+{
+    text-decoration: none;
+    font-size: 20px;
+    color: #181a1f;
+}
+.Blog .card .card-body .card-title a:hover
+{
+    color: #ffa396;
+}
+.Blog .card-body .btn
+{
+    padding: 7px 19px;
+    border: 2px solid #000;
+}
+.Blog .card-body .btn:hover
+{
+    color: #fff;
+    background-color: #000;
+}

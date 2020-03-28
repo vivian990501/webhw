@@ -1,0 +1,46 @@
+.Special-Offers
+{
+    background: #e7f5f7;
+    padding: 80px 0 102px;
+    box-sizing: content-box;
+}
+.Special-Offers .row
+{
+    box-sizing: content-box;
+}
+.Special-Offers .input-group
+{
+    margin-top: 44px;
+}
+.Special-Offers .input-group-append button
+{
+    border: 2px solid#000;
+}
+.Special-Offers .input-group-append button:hover
+{
+    background-color: #000;
+    color: #fff;
+}
+.Special-Offers .title-community
+{
+    margin-top: 75px;
+}
+.Special-Offers .community a
+{
+    padding: 15px 18px;
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 50%;
+    margin: 0 4px;
+    color: #181a1f;
+    text-decoration: none;
+}
+.Special-Offers .community .fa-facebook-f
+{
+    padding: 0 2px;
+}
+.Special-Offers .community a:hover{
+
+    color: #fff;
+    background-color: #000;
+}
