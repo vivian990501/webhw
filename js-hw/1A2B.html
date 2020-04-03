@@ -131,7 +131,7 @@
             showall.id='showall'
             if(countofA==4)
             {
-                showall.innerHTML = `<span style="background-color: #16982b; ">${countofA}A${countofB}B</span> <span>${input_str}</span>`;
+                showall.innerHTML = `<span style="background-color: #16982b; color:#fff;">${countofA}A${countofB}B</span> <span>${input_str}</span>`;
                 var success=setTimeout("alert('遊戲結束')",300);
                 for (let game of before) {
                 game.removeAttribute('disabled');
@@ -140,7 +140,7 @@
             }
             else
             {
-                showall.innerHTML = `<span style="background-color: red; ">${countofA}A${countofB}B</span> <span>${input_str}</span>`;
+                showall.innerHTML = `<span style="background-color: red;color:#fff; ">${countofA}A${countofB}B</span> <span>${input_str}</span>`;
             }
             promot.appendChild(showall);
         }
