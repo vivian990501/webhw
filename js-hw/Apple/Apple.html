@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Apple/fontawesome-free-5.13.0-web/css/all.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+        integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous">
+        </script>
+    <title>Apple</title>
+    <style type="text/css">
+        .information .color .btn_mac_color , .information .type .btn_mac_storge {
+            width: 46%;
+            height: 120px;
+            border: 1px solid #ccc;
+        }
+
+        .information .color {
+            text-align: center;
+        }
+
+        @media screen and (min-width: 768px) {
+            .information .color ,.information .type , .information .price{
+                text-align: left;
+            }
+            .information .price h2
+            {
+                margin-left: 8px;
+            }
+            .information .color .btn_mac_color ,.information .type .btn_mac_storge{
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto">
+        <div class="row mx-auto">
+            <div class="col-12 col-md-g mx-auto text-center">
+                <div class="btn-group mx-auto mb-2" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary" onclick="iphone()">iPhone11</button>
+                    <button type="button" class="btn btn-secondary" onclick="ipad()">iPad</button>
+                    <button type="button" class="btn btn-secondary" id="btn_mac" onclick="mac()">Macbook-Pro</button>
+                </div>
+                <div class="product_information d-flex flex-wrap">
+                    <div class="pic col-12 col-md-6">
+                    </div>
+                    <div class="information col-12 col-md-6">
+                        <div class="color">
+
+                        </div>
+                        <div class="type">
+
+                        </div>
+                        <div class="price">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var Product = {
+            IPhone: {
+                Detail: {
+                    productName: 'iPhone 11',
+                    baseImgUrl: './img/iphone11-select-2019-family.png'
+                },
+                OutWard: [
+                    { color: '紅色', colorValue: '#ff0000', imageUrl: './img/iphone-red.png' },
+                    { color: '黃色', colorValue: '#ffff00', imageUrl: './img/iphone-yellow.png' },
+                    { color: '黑色', colorValue: '#000000', imageUrl: './img/iphone-black.png' },
+                ],
+                Spec: {
+                    Storge: [
+                        { size: '64GB', fit: 24900 },
+                        { size: '128GB', fit: 26900 },
+                        { size: '256GB', fit: 30400 },
+                    ]
+                }
+            },
+            IPad: {
+                Detail: {
+                    productName: 'iPad',
+                    baseImgUrl: './img/ipad-hero-unselected-201909_GEO_TW.png'
+                },
+                OutWard: [
+                    { color: '太空灰色', colorValue: '#6e6969', imageUrl: './img/ipad-space.png' },
+                    { color: '銀色', colorValue: '#b9aeae', imageUrl: './img/ipad-silver.png' },
+                    { color: '金色', colorValue: '#ceb7a8', imageUrl: './img/ipad-gold.png' },
+                ],
+                Spec: {
+                    Storge: [
+                        { size: '32GB', fit: 10900 },
+                        { size: '128GB', fit: 13900 },
+                    ]
+                }
+            },
+            MacPro: {
+                Detail: {
+                    productName: 'MacPro 13',
+                    baseImgUrl: './img/mbp13touch-space-gallery1-201907.png'
+                },
+                OutWard: [
+                    { color: '太空灰色', colorValue: '#6e6969', imageUrl: './pic/mbp13touch-space-select-201807_GEO_TW.jpg' },
+                    { color: '銀色', colorValue: '#b9aeae', imageUrl: './pic/mbp13touch-silver-select-201807_GEO_TW.jpg' },
+                ],
+                Spec: {
+                    Storge: [
+                        { size: '256GB', price: 51300 },
+                        { size: '512GB', price: 57300 },
+                        { size: '1TB', price: 63300 },
+                        { size: '2TB', price: 75300 },
+                    ]
+                }
+            }
+        };
+        var pic = document.getElementsByClassName('pic')[0];
+        var color = document.getElementsByClassName('color')[0];
+        var type = document.getElementsByClassName('type')[0];
+        var price =document.getElementsByClassName('price')[0];
+        var txt_price=document.createElement('h2');
+        var btn_storge = document.createElement('div');
+        var btn_mac=document.getElementById('btn_mac');
+        function mac() {
+            pic.innerHTML = `<img src="https://n.sinaimg.cn/tech/crawl/556/w868h488/20190620/2108-hyrtarw7194436.jpg" alt=Macbook-pro class='d-block w-100'>`
+            add_mac_color_btn();
+            add_mac_storge_btn();
+            let title_price =document.createElement('h3');
+            title_price.innerHTML='價格試算';
+            price.appendChild(title_price);
+            price.appendChild(txt_price);
+            btn_mac.setAttribute('disabled', 'disabled');
+        }
+        function add_mac_storge_btn() {
+            let txt_storge = document.createElement('h3');
+            let btn_storge = document.createElement('div');
+            txt_storge.innerHTML='規格';
+            btn_storge.innerHTML = 
+                `<button class="btn btn_mac_storge mr-2 mx-md-2 " onclick='show_mac_price1()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[0].size}</span><span class="d-bloc text-center">NT$${Product.MacPro.Spec.Storge[0].price}</span></button> 
+                <button class="btn btn_mac_storge ml-2 mx-md-2 " onclick='show_mac_price2()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[1].size}</span><span class="d-bloc text-center">NT$${Product.MacPro.Spec.Storge[1].price}</span></button>
+                <button class="btn btn_mac_storge mr-2 mx-md-2 mt-3 mt-md-0" onclick='show_mac_price3()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[2].size}</span><span class="d-bloc text-center">NT$${Product.MacPro.Spec.Storge[2].price}</span></button> 
+                <button class="btn btn_mac_storge ml-2 mx-md-2 mt-3" onclick='show_mac_price4()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[3].size}</span<span class="d-bloc text-center">NT$${Product.MacPro.Spec.Storge[3].price}</span></button>`;
+            type.appendChild(txt_storge);
+            type.appendChild(btn_storge);
+        }
+        function add_mac_color_btn() {
+            let txt_color = document.createElement('h3');
+            let btn_color = document.createElement('div');
+            txt_color.innerHTML = '顏色';
+            btn_color.innerHTML = `<button class="btn btn_mac_color mr-2 mx-md-2" onclick='change_mac_pic_gray()'><i class="fas fa-circle" style="color: rgb(110, 105, 105); font-size:40px;"></i><span class='text-center d-block'>${Product.MacPro.OutWard[0].color}</span></button> <button class="btn btn_mac_color ml-2 mx-md-2" onclick='change_mac_pic_silver()'><i class="fas fa-circle" style="color: rgb(185, 174, 174); font-size:40px;"></i><span class='text-center d-block'>${Product.MacPro.OutWard[1].color}</span></button>`;
+            color.appendChild(txt_color);
+            color.appendChild(btn_color);
+        }
+        function change_mac_pic_gray() {
+            pic.innerHTML = `<img src="${Product.MacPro.OutWard[0].imageUrl}" alt=Macbook-pro class='d-block w-100'>`
+        }
+        function change_mac_pic_silver() {
+            pic.innerHTML = `<img src="${Product.MacPro.OutWard[1].imageUrl}" alt=Macbook-pro class='d-block w-100'>`
+        }
+        function show_mac_price1(){
+            txt_price.innerHTML=`NT$ ${Product.MacPro.Spec.Storge[0].price}`;
+        }
+        function show_mac_price2(){
+            txt_price.innerHTML=`NT$ ${Product.MacPro.Spec.Storge[1].price}`;
+        }
+        function show_mac_price3(){
+            txt_price.innerHTML=`NT$ ${Product.MacPro.Spec.Storge[2].price}`;
+            price.appendChild(txt_price);
+        }
+        function show_mac_price4(){
+            txt_price.innerHTML=`NT$ ${Product.MacPro.Spec.Storge[3].price}`;
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
