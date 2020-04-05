@@ -15,27 +15,48 @@
         </script>
     <title>Apple</title>
     <style type="text/css">
-        .information .color .btn_mac_color , .information .type .btn_mac_storge {
+        .information .color .btn_iphone_color,
+        .information .type .btn_iphone_storge,
+        .information .color .btn_ipad_color,
+        .information .type .btn_ipad_storge,
+        .information .color .btn_mac_color,
+        .information .type .btn_mac_storge {
             width: 46%;
             height: 120px;
             border: 1px solid #ccc;
         }
 
+        .information .color .btn_ipad_color ,.information .type .btn_iphone_storge{
+            width: 130px;
+        }
+        
+
+
         .information .color {
             text-align: center;
         }
 
+
         @media screen and (min-width: 768px) {
-            .information .color ,.information .type , .information .price{
+
+            .information .color,
+            .information .type,
+            .information .price {
                 text-align: left;
             }
-            .information .price h2
-            {
+
+            .information .price h2 {
                 margin-left: 8px;
             }
-            .information .color .btn_mac_color ,.information .type .btn_mac_storge{
+            .information .type .btn_iphone_storge,
+            .information .color .btn_ipad_color,
+            .information .color .btn_iphone_color,
+            .information .type .btn_ipad_storge,
+            .information .color .btn_mac_color,
+            .information .type .btn_mac_storge {
                 width: 120px;
             }
+
         }
     </style>
 </head>
@@ -45,8 +66,8 @@
         <div class="row mx-auto">
             <div class="col-12 col-md-g mx-auto text-center">
                 <div class="btn-group mx-auto mb-2" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary" onclick="iphone()">iPhone11</button>
-                    <button type="button" class="btn btn-secondary" onclick="ipad()">iPad</button>
+                    <button type="button" class="btn btn-secondary" id="btn_iphone" onclick="iphone()">iPhone11</button>
+                    <button type="button" class="btn btn-secondary" id="btn_ipad" onclick="ipad()">iPad</button>
                     <button type="button" class="btn btn-secondary" id="btn_mac" onclick="mac()">Macbook-Pro</button>
                 </div>
                 <div class="product_information d-flex flex-wrap">
@@ -67,48 +88,50 @@
             </div>
         </div>
     </div>
-
     <script>
         var Product = {
             IPhone: {
                 Detail: {
                     productName: 'iPhone 11',
-                    baseImgUrl: './img/iphone11-select-2019-family.png'
+                    baseImgUrl: './pic/iphone11-select-2019-family.jpg'
                 },
                 OutWard: [
-                    { color: '紅色', colorValue: '#ff0000', imageUrl: './img/iphone-red.png' },
-                    { color: '黃色', colorValue: '#ffff00', imageUrl: './img/iphone-yellow.png' },
-                    { color: '黑色', colorValue: '#000000', imageUrl: './img/iphone-black.png' },
+                    { color: '白色', colorValue: '#efefef', imageUrl: './pic/iphone11-white-select-2019.png' },
+                    { color: '黑色', colorValue: '#000000', imageUrl: './pic/iphone11-black-select-2019.png' },
+                    { color: '綠色', colorValue: '#AFEEEE', imageUrl: './pic/iphone11-green-select-2019.png' },
+                    { color: '黃色', colorValue: '#F0E68C', imageUrl: './pic/iphone11-yellow-select-2019.png' },
+                    { color: '紫色', colorValue: '#D8BFD8', imageUrl: './pic/iphone11-purple-select-2019.png' },
+                    { color: '紅色', colorValue: '#990036', imageUrl: './pic/iphone11-red-select-2019.png' },
                 ],
                 Spec: {
                     Storge: [
-                        { size: '64GB', fit: 24900 },
-                        { size: '128GB', fit: 26900 },
-                        { size: '256GB', fit: 30400 },
+                        { size: '64GB', price: 24900 },
+                        { size: '128GB', price: 26900 },
+                        { size: '256GB', price: 30400 },
                     ]
                 }
             },
             IPad: {
                 Detail: {
                     productName: 'iPad',
-                    baseImgUrl: './img/ipad-hero-unselected-201909_GEO_TW.png'
+                    baseImgUrl: './pic/ipad-hero-unselected-201909_GEO_TW.jpg'
                 },
                 OutWard: [
-                    { color: '太空灰色', colorValue: '#6e6969', imageUrl: './img/ipad-space.png' },
-                    { color: '銀色', colorValue: '#b9aeae', imageUrl: './img/ipad-silver.png' },
-                    { color: '金色', colorValue: '#ceb7a8', imageUrl: './img/ipad-gold.png' },
+                    { color: '太空灰色', colorValue: '#6e6969', imageUrl: './pic/ipad-wifi-select-space-201909_GEO_TW.png' },
+                    { color: '銀色', colorValue: '#b9aeae', imageUrl: './pic/ipad-wifi-select-silver-201909_GEO_TW.png' },
+                    { color: '金色', colorValue: '#ceb7a8', imageUrl: './pic/ipad-wifi-select-gold-201909_GEO_TW.png' },
                 ],
                 Spec: {
                     Storge: [
-                        { size: '32GB', fit: 10900 },
-                        { size: '128GB', fit: 13900 },
+                        { size: '32GB', price: 10900 },
+                        { size: '128GB', price: 13900 },
                     ]
                 }
             },
             MacPro: {
                 Detail: {
                     productName: 'MacPro 13',
-                    baseImgUrl: './img/mbp13touch-space-gallery1-201907.png'
+                    baseImgUrl: './pic/2108-hyrtarw7194436.jpg'
                 },
                 OutWard: [
                     { color: '太空灰色', colorValue: '#6e6969', imageUrl: './pic/mbp13touch-space-select-201807_GEO_TW.jpg' },
@@ -127,39 +150,52 @@
         var pic = document.getElementsByClassName('pic')[0];
         var color = document.getElementsByClassName('color')[0];
         var type = document.getElementsByClassName('type')[0];
-        var price =document.getElementsByClassName('price')[0];
-        var txt_price=document.createElement('h2');
+        var price = document.getElementsByClassName('price')[0];
+        var color_div = document.createElement('div');
+        var type_div = document.createElement('div');
+        var price_div = document.createElement('div');
+        var title_price = document.createElement('div');
+        var txt_price = document.createElement('h2');
         var btn_storge = document.createElement('div');
-        var btn_mac=document.getElementById('btn_mac');
+        var btn_mac = document.getElementById('btn_mac');
+        var btn_ipad = document.getElementById('btn_ipad');
+        var btn_iphone = document.getElementById('btn_iphone');
+        type.appendChild(type_div);
+        color.appendChild(color_div);
+        price.appendChild(price_div);
+        price.appendChild(title_price);
+        price.appendChild(txt_price);
         function mac() {
-            pic.innerHTML = `<img src="https://n.sinaimg.cn/tech/crawl/556/w868h488/20190620/2108-hyrtarw7194436.jpg" alt=Macbook-pro class='d-block w-100'>`
+            type_div.innerHTML = '';
+            color_div.innerHTML = '';
+            price_div.innerHTML = '';
+            title_price.innerHTML = '';
+            txt_price.innerHTML = '';
+            pic.innerHTML = `<img src="${Product.MacPro.Detail.baseImgUrl}" alt=Macbook-pro class='d-block w-100'>`
             add_mac_color_btn();
             add_mac_storge_btn();
-            let title_price =document.createElement('h3');
-            title_price.innerHTML='價格試算';
-            price.appendChild(title_price);
-            price.appendChild(txt_price);
-            btn_mac.setAttribute('disabled', 'disabled');
+            add_mac_price();
+        }
+        function add_mac_price() {
+            title_price.innerHTML = '<h3>價格試算</h3>';
         }
         function add_mac_storge_btn() {
-            let txt_storge = document.createElement('h3');
-            let btn_storge = document.createElement('div');
-            txt_storge.innerHTML='規格';
-            btn_storge.innerHTML = 
-                `<button class="btn btn_mac_storge mr-2 mx-md-2 " onclick='show_mac_price1()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[0].size}</span><span class="d-bloc text-center">NT$${Product.MacPro.Spec.Storge[0].price}</span></button> 
-                <button class="btn btn_mac_storge ml-2 mx-md-2 " onclick='show_mac_price2()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[1].size}</span><span class="d-bloc text-center">NT$${Product.MacPro.Spec.Storge[1].price}</span></button>
-                <button class="btn btn_mac_storge mr-2 mx-md-2 mt-3 mt-md-0" onclick='show_mac_price3()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[2].size}</span><span class="d-bloc text-center">NT$${Product.MacPro.Spec.Storge[2].price}</span></button> 
-                <button class="btn btn_mac_storge ml-2 mx-md-2 mt-3" onclick='show_mac_price4()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[3].size}</span<span class="d-bloc text-center">NT$${Product.MacPro.Spec.Storge[3].price}</span></button>`;
-            type.appendChild(txt_storge);
-            type.appendChild(btn_storge);
+            type_div.innerHTML = '<h3>規格</h3>';
+            type_div.innerHTML +=
+                `<div>
+                <button class="btn btn_mac_storge mr-2 mx-md-2 " onclick='show_mac_price1()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[0].size}</span><span class="d-block text-center">NT$${Product.MacPro.Spec.Storge[0].price}</span></button> 
+                <button class="btn btn_mac_storge ml-2 mx-md-2 " onclick='show_mac_price2()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[1].size}</span><span class="d-block text-center">NT$${Product.MacPro.Spec.Storge[1].price}</span></button>
+                <button class="btn btn_mac_storge mr-2 mx-md-2 mt-3 mt-md-0" onclick='show_mac_price3()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[2].size}</span><span class="d-block text-center">NT$${Product.MacPro.Spec.Storge[2].price}</span></button> 
+                <button class="btn btn_mac_storge ml-2 mx-md-2 mt-3" onclick='show_mac_price4()'><span class='text-center d-block'>${Product.MacPro.Spec.Storge[3].size}</span><span class="d-block text-center">NT$${Product.MacPro.Spec.Storge[3].price}</span></button>
+                </div>`;
         }
         function add_mac_color_btn() {
-            let txt_color = document.createElement('h3');
-            let btn_color = document.createElement('div');
-            txt_color.innerHTML = '顏色';
-            btn_color.innerHTML = `<button class="btn btn_mac_color mr-2 mx-md-2" onclick='change_mac_pic_gray()'><i class="fas fa-circle" style="color: rgb(110, 105, 105); font-size:40px;"></i><span class='text-center d-block'>${Product.MacPro.OutWard[0].color}</span></button> <button class="btn btn_mac_color ml-2 mx-md-2" onclick='change_mac_pic_silver()'><i class="fas fa-circle" style="color: rgb(185, 174, 174); font-size:40px;"></i><span class='text-center d-block'>${Product.MacPro.OutWard[1].color}</span></button>`;
-            color.appendChild(txt_color);
-            color.appendChild(btn_color);
+            color_div.innerHTML = '<h3>顏色</h3>';
+            color_div.innerHTML +=
+                `<div>
+            <button class="btn btn_mac_color mr-2 mx-md-2" onclick='change_mac_pic_gray()'><i class="fas fa-circle" style="color: ${Product.MacPro.OutWard[0].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.MacPro.OutWard[0].color}</span></button> 
+            <button class="btn btn_mac_color ml-2 mx-md-2" onclick='change_mac_pic_silver()'><i class="fas fa-circle" style="color: ${Product.MacPro.OutWard[1].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.MacPro.OutWard[1].color}</span></button>
+            </div>`;
         }
         function change_mac_pic_gray() {
             pic.innerHTML = `<img src="${Product.MacPro.OutWard[0].imageUrl}" alt=Macbook-pro class='d-block w-100'>`
@@ -167,19 +203,132 @@
         function change_mac_pic_silver() {
             pic.innerHTML = `<img src="${Product.MacPro.OutWard[1].imageUrl}" alt=Macbook-pro class='d-block w-100'>`
         }
-        function show_mac_price1(){
-            txt_price.innerHTML=`NT$ ${Product.MacPro.Spec.Storge[0].price}`;
+        function show_mac_price1() {
+            txt_price.innerHTML = `NT$ ${Product.MacPro.Spec.Storge[0].price}`;
         }
-        function show_mac_price2(){
-            txt_price.innerHTML=`NT$ ${Product.MacPro.Spec.Storge[1].price}`;
+        function show_mac_price2() {
+            txt_price.innerHTML = `NT$ ${Product.MacPro.Spec.Storge[1].price}`;
         }
-        function show_mac_price3(){
-            txt_price.innerHTML=`NT$ ${Product.MacPro.Spec.Storge[2].price}`;
-            price.appendChild(txt_price);
+        function show_mac_price3() {
+            txt_price.innerHTML = `NT$ ${Product.MacPro.Spec.Storge[2].price}`;
         }
-        function show_mac_price4(){
-            txt_price.innerHTML=`NT$ ${Product.MacPro.Spec.Storge[3].price}`;
+        function show_mac_price4() {
+            txt_price.innerHTML = `NT$ ${Product.MacPro.Spec.Storge[3].price}`;
         }
+
+        function ipad() {
+            type_div.innerHTML = '';
+            color_div.innerHTML = '';
+            price_div.innerHTML = '';
+            title_price.innerHTML = '';
+            txt_price.innerHTML = '';
+            pic.innerHTML = `<img src="${Product.IPad.Detail.baseImgUrl}" alt="IPad" class='d-block w-100'>`
+            add_ipad_color_btn();
+            add_ipad_storge_btn();
+            add_ipad_price();
+        }
+        function add_ipad_price() {
+            title_price.innerHTML = '<h3>價格試算</h3>';
+        }
+        function add_ipad_storge_btn() {
+            type_div.innerHTML = '<h3>規格</h3>';
+            type_div.innerHTML +=
+                `<div>
+                <button class="btn btn_ipad_storge mr-2 mx-md-2 " onclick='show_ipad_price1()'><span class='text-center d-block'>${Product.IPad.Spec.Storge[0].size}</span><span class="d-block text-center">NT$${Product.IPad.Spec.Storge[0].price}</span></button> 
+                <button class="btn btn_ipad_storge ml-2 mx-md-2 " onclick='show_ipad_price2()'><span class='text-center d-block'>${Product.IPad.Spec.Storge[1].size}</span><span class="d-block text-center">NT$${Product.IPad.Spec.Storge[1].price}</span></button>
+                </div>`;
+        }
+        function add_ipad_color_btn() {
+            color_div.innerHTML = '<h3>顏色</h3>';
+            color_div.innerHTML +=
+                `<div>
+            <button class="btn btn_ipad_color mx-2 mx-md-2" onclick='change_ipad_pic_gray()'><i class="fas fa-circle" style="color: ${Product.IPad.OutWard[0].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPad.OutWard[0].color}</span></button> 
+            <button class="btn btn_ipad_color mx-2 mx-md-2" onclick='change_ipad_pic_silver()'><i class="fas fa-circle" style="color: ${Product.IPad.OutWard[1].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPad.OutWard[1].color}</span></button>
+            <button class="btn btn_ipad_color mx-2 mx-md-2" onclick='change_ipad_pic_gold()'><i class="fas fa-circle" style="color: ${Product.IPad.OutWard[2].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPad.OutWard[2].color}</span></button>
+            </div>`;
+        }
+        function change_ipad_pic_gray() {
+            pic.innerHTML = `<img src="${Product.IPad.OutWard[0].imageUrl}" alt="IPad" class='d-block w-100'>`
+        }
+        function change_ipad_pic_silver() {
+            pic.innerHTML = `<img src="${Product.IPad.OutWard[1].imageUrl}" alt="IPad" class='d-block w-100'>`
+        }
+        function change_ipad_pic_gold() {
+            pic.innerHTML = `<img src="${Product.IPad.OutWard[2].imageUrl}" alt="IPad" class='d-block w-100'>`
+        }
+        function show_ipad_price1() {
+            txt_price.innerHTML = `NT$ ${Product.IPad.Spec.Storge[0].price}`;
+        }
+        function show_ipad_price2() {
+            txt_price.innerHTML = `NT$ ${Product.IPad.Spec.Storge[1].price}`;
+        }
+
+
+        function iphone() {
+            type_div.innerHTML = '';
+            color_div.innerHTML = '';
+            price_div.innerHTML = '';
+            title_price.innerHTML = '';
+            txt_price.innerHTML = '';
+            pic.innerHTML = `<img src="${Product.IPhone.Detail.baseImgUrl}" alt="IPhone" class='d-block w-100'>`
+            add_iphone_color_btn();
+            add_iphone_storge_btn();
+            add_iphone_price();
+        }
+        function add_iphone_price() {
+            title_price.innerHTML = '<h3>價格試算</h3>';
+        }
+        function add_iphone_storge_btn() {
+            type_div.innerHTML = '<h3>規格</h3>';
+            type_div.innerHTML +=
+                `<div>
+                <button class="btn btn_iphone_storge mx-2 mx-md-2 " onclick='show_iphone_price1()'><span class='text-center d-block'>${Product.IPhone.Spec.Storge[0].size}</span><span class="d-block text-center">NT$${Product.IPhone.Spec.Storge[0].price}</span></button> 
+                <button class="btn btn_iphone_storge mx-2 mx-md-2 " onclick='show_iphone_price2()'><span class='text-center d-block'>${Product.IPhone.Spec.Storge[1].size}</span><span class="d-block text-center">NT$${Product.IPhone.Spec.Storge[1].price}</span></button>
+                <button class="btn btn_iphone_storge mx-2 mx-md-2 " onclick='show_iphone_price3()'><span class='text-center d-block'>${Product.IPhone.Spec.Storge[2].size}</span><span class="d-block text-center">NT$${Product.IPhone.Spec.Storge[2].price}</span></button>
+                </div>`;
+        }
+
+        function add_iphone_color_btn() {
+            color_div.innerHTML = '<h3>顏色</h3>';
+            color_div.innerHTML +=
+                `<div>
+            <button class="btn btn_iphone_color mr-2 mx-md-2 mb-2" onclick='change_iphone_pic_white()'><i class="fas fa-circle" style="color: ${Product.IPhone.OutWard[0].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPhone.OutWard[0].color}</span></button> 
+            <button class="btn btn_iphone_color ml-2 mx-md-2 mb-2" onclick='change_iphone_pic_black()'><i class="fas fa-circle" style="color: ${Product.IPhone.OutWard[1].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPhone.OutWard[1].color}</span></button>
+            <button class="btn btn_iphone_color mr-2 mx-md-2 mb-2" onclick='change_iphone_pic_green()'><i class="fas fa-circle" style="color: ${Product.IPhone.OutWard[2].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPhone.OutWard[2].color}</span></button>
+            <button class="btn btn_iphone_color ml-2 mx-md-2 mb-2" onclick='change_iphone_pic_yellow()'><i class="fas fa-circle" style="color: ${Product.IPhone.OutWard[3].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPhone.OutWard[3].color}</span></button> 
+            <button class="btn btn_iphone_color mr-2 mx-md-2 mb-2" onclick='change_iphone_pic_purple()'><i class="fas fa-circle" style="color: ${Product.IPhone.OutWard[4].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPhone.OutWard[4].color}</span></button>
+            <button class="btn btn_iphone_color ml-2 mx-md-2 mb-2" onclick='change_iphone_pic_red()'><i class="fas fa-circle" style="color: ${Product.IPhone.OutWard[5].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPhone.OutWard[5].color}</span></button>
+            </div>`;
+        }
+        function change_iphone_pic_white() {
+            pic.innerHTML = `<img src="${Product.IPhone.OutWard[0].imageUrl}" alt="IPhone" class='d-block w-100'>`
+        }
+        function change_iphone_pic_black() {
+            pic.innerHTML = `<img src="${Product.IPhone.OutWard[1].imageUrl}" alt="IPhone" class='d-block w-100'>`
+        }
+        function change_iphone_pic_green() {
+            pic.innerHTML = `<img src="${Product.IPhone.OutWard[2].imageUrl}" alt="IPhone" class='d-block w-100'>`
+        }
+        function change_iphone_pic_yellow() {
+            pic.innerHTML = `<img src="${Product.IPhone.OutWard[3].imageUrl}" alt="IPhone" class='d-block w-100'>`
+        }
+        function change_iphone_pic_purple() {
+            pic.innerHTML = `<img src="${Product.IPhone.OutWard[4].imageUrl}" alt="IPhone" class='d-block w-100'>`
+        }
+        function change_iphone_pic_red() {
+            pic.innerHTML = `<img src="${Product.IPhone.OutWard[5].imageUrl}" alt="IPhone" class='d-block w-100'>`
+        }
+        function show_iphone_price1() {
+            txt_price.innerHTML = `NT$ ${Product.IPhone.Spec.Storge[0].price}`;
+        }
+        function show_iphone_price2() {
+            txt_price.innerHTML = `NT$ ${Product.IPhone.Spec.Storge[1].price}`;
+        }
+        function show_iphone_price3() {
+            txt_price.innerHTML = `NT$ ${Product.IPhone.Spec.Storge[2].price}`;
+        }
+
+
     </script>
 
     <!-- Optional JavaScript -->
