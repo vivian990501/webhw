@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <script src='../作業/Modules/MyHelper.js'></script> -->
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12"></div>
+        </div>
+    </div>
+    <template id="template">
+        <div class="card col-4 col-md-3">
+            <img src="" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-primary">Link</a>
+            </div>
+            
+        </div>
+    </template>
+    <script type="module">
+        let row = document.querySelector('.row');
+        var img =document.createElement('img');
+        
+        function CreateCard(Array) {
+
+            let template =document.querySelector('#template');
+            
+            Array.forEach((item) => {
+                let cloneContent = template.content.cloneNode(true);
+                let img = cloneContent.querySelector('.card-img-top');
+                let title = cloneContent.querySelector('.card-title');
+                let p = cloneContent.querySelector('.card-text');
+                let link = cloneContent.querySelector('.btn');
+
+                img.setAttribute('src','https://picsum.photos/300/300/?random=1');
+                title.innerText=item.Name;
+                p.innerText=item.Information;
+                link.setAttribute('herf',item.url);
+                row.appendChild(cloneContent);
+            })
+        }
+
+
+        let data = [];
+        let rowdata = '';
+        window.onload = function () {
+            let xhr = new XMLHttpRequest;
+            xhr.onload = function () {
+
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    rowdata = JSON.parse(this.responseText);
+                    rowdata.feed.entry.forEach(item => {
+
+                        // item.gsx$name.$t
+                        data.push({
+                            Name: item.gsx$name.$t,
+                            url: item.gsx$url.$t,
+                            Img: item.gsx$img.$t,
+                            Information: item.gsx$information.$t,
+                            Type: item.gsx$type.$t
+                        });
+                    });
+
+                    CreateCard(data);
+                }
+
+
+            }
+            xhr.open('GET', 'https://spreadsheets.google.com/feeds/list/1yuSFSamTy-KxcD6ta1p1yMlQhbwMrIh0MNvrJL7YQsQ/od6/public/values?alt=json');
+            xhr.send();
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

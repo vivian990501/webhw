@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src='../Modules/MyHelper.js'></script>
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Taiwan Address/</h1>
+    <div class="msg"></div>
+    <!-- <button>Load Zipcode</button> -->
+    <template id='templateTitle'>
+        <tr>
+            <th>城市</th>
+            <th>區域</th>
+            <th>郵遞區號</th>
+        </tr>
+    </template>
+    <template id='templateRow'>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </template>
+    <script>
+
+        /* Step 1 :
+        準備資料
+        自定義資料
+        從網路來
+        
+        Step 2 :
+        整理資料
+        
+        Step 3 :
+        把資料呈現在畫面上(也就是呈現在document上)
+        
+        Step 4 :
+        賦予畫面上的元件 上各種功能
+        
+        #按鈕 click 要做什麼事?
+        
+        #輸入框 輸入後 要做什麼事?
+        
+        #按Enter後要做什麼事?
+
+        Step 5 :
+        把畫面變得漂漂亮亮
+        #Amos在你後面看 */
+
+
+        var body = $g('body');
+        var table = $c('table');
+        var thead = $c('thead');
+        var tbody = $c('tbody');
+        table.setAttribute('border', '2');
+
+        var tbody = $c('tbody')
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        body.appendChild(table);
+        let bnt1 = $g('button');
+        var msg = document.getElementsByClassName('msg');
+        let zipcodeeArray = '';
+        table.classList.add('table', 'table-striped', 'w-50', 'mx-auto');
+
+        function addThead(titleArray) {
+            let templateTitle = $g('#templateTitle');
+            thead.appendChild(templateTitle.content)
+        }
+
+
+        function addTbody(rowArray) {
+
+            let templateRow = $g('#templateRow');
+
+
+            //ZipCode[0].Districts[0]
+            let city = 0;
+            rowArray.forEach((item, index) => {
+
+                if (index == 1) {
+
+                    item.forEach((area) => {
+                        let cloneContent = templateRow.content.cloneNode(true);
+                        let tds = cloneContent.querySelectorAll('td');
+                        tds[0].textContent = rowArray[city]
+                        tds[index].textContent = area.Districts;
+                        tds[index + 1].textContent = area.Zip;
+                        // debugger;
+                        tbody.appendChild(cloneContent);
+                    });
+                    city++;
+                }
+            });
+
+        }
+
+        window.onload = function () {
+            let xhr = new XMLHttpRequest;
+            xhr.onload = function () {
+
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    zipcodeeArray = JSON.parse(this.responseText);
+                    // debugger
+                    let ZipCode = [];
+                    zipcodeeArray.forEach(item => {
+                        let obj = { City: item.CityName, Districts: [] }
+                        item.AreaList.forEach(area => {
+                            obj.Districts.push({ Districts: area.AreaName, Zip: area.ZipCode });
+                        });
+                        ZipCode.push(obj);
+                    });
+
+                    addThead(ZipCode);
+                    ZipCode.forEach(item => {
+                        addTbody(Object.values(item));
+                    });
+
+                    // var content = JSON.stringify(ZipCode);
+                    // var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+                    // saveAs(blob, "Address.json");
+                    // debugger
+                }
+                else {
+                    msg.textContent = '發生錯誤，HTTP response代碼:' + xhr.status;
+                }
+
+
+
+            }
+            xhr.open('GET', 'http://127.0.0.1:5500/TaiwanAddress/TaiwanAddress.json');
+            xhr.send();
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
