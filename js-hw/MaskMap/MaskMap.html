@@ -62,7 +62,7 @@
             }
             $.ajax({
                 type: "Get",
-                url: "http://127.0.0.1:5502/js-hw/MaskMap/MaskData.json",
+                url: "https://findmasks.herokuapp.com/places",
                 success: function (response) {
                     response.features.forEach(element => {
                         let obj = { Coordinates: element.geometry.coordinates, Properties: [element.properties] };
