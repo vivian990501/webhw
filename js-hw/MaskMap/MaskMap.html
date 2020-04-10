@@ -33,12 +33,13 @@
     <script>
         let pharmacy_address = [];
         var maskdata = [];
-        var map, infoWindow;
+
+        var map, infoWindow, markertext;
         function initMap() {
             var chu = { lat: 24.7573675, lng: 120.9516043 };
-            map = new google.maps.Map(
-                document.getElementById('map'), { zoom: 14, center: chu });
 
+
+            markertext = new google.maps.InfoWindow;
             infoWindow = new google.maps.InfoWindow;
 
             // Try HTML5 geolocation.
@@ -48,11 +49,12 @@
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
-
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('Location found.');
-                    infoWindow.open(map);
-                    map.setCenter(pos);
+                    map = new google.maps.Map(
+                        document.getElementById('map'), { zoom: 13, center: pos });
+                    // infoWindow.setPosition(pos);
+                    // infoWindow.setContent('Location found.');
+                    // infoWindow.open(map);
+                    // map.setCenter(pos);
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 });
@@ -65,10 +67,8 @@
                 url: "https://findmasks.herokuapp.com/places",
                 success: function (response) {
                     response.features.forEach(element => {
-                        let obj = { Coordinates: element.geometry.coordinates, Properties: [element.properties] };
-                        maskdata.push(obj);
+                        pharmacy_address.push([`${element.properties.name}`, element.geometry.coordinates[1], element.geometry.coordinates[0], element.properties.masksLeft, element.properties.childMasksLeft,element.properties.id]);
                     });
-                    SearchMask(maskdata);
                     setMarkers(map);
                 }
 
@@ -82,32 +82,29 @@
                 'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
         }
-        function SearchMask(data) {
-            data.forEach(item => {
-                pharmacy_address.push([`${item.Properties[0].name}`, item.Coordinates[1], item.Coordinates[0]]);
-            })
-        }
+
         function setMarkers(map) {
             for (var i = 0; i < pharmacy_address.length; i++) {
                 var beach = pharmacy_address[i];
                 // debugger;
-                if ((maskdata[i].Properties[0].childMasksLeft == 0) && (maskdata[i].Properties[0].masksLeft == 0)) {
-                    var marker = new google.maps.Marker({
-                        position: { lat: beach[1], lng: beach[2] },
-                        map: map,
-                        title: beach[0],
-                        icon: 'pic/crying.png',
-                    });
-                }
-                else {
-                    var marker = new google.maps.Marker({
-                        position: { lat: beach[1], lng: beach[2] },
-                        map: map,
-                        title: beach[0],
-                        icon: 'pic/medical-mask.png',
-                    });
-                }
-
+                var marker = new google.maps.Marker({
+                    position: { lat: beach[1], lng: beach[2] },
+                    map: map,
+                    title: `${beach[0]} 成人 : ${beach[3]} 兒童 : ${beach[4]}`,
+                    icon: (beach[3] + beach[4]) != 0 ? 'pic/medical-mask.png' : 'pic/crying.png',
+                    info: {Id:beach[5] , Name:beach[0], B_mask:beach[3],S_mask:beach[4] }
+                    
+                });
+                marker.addListener('click', function () {
+                    markertext.setContent(`
+                        <div>
+                        <h5>${this.info.Id}</h5>
+                        <h4>${this.info.Name}</h4>
+                        <p>成人 : ${this.info.B_mask} 兒童 :${this.info.S_mask}</p>
+                        </div>
+                    `);
+                    markertext.open(map, this);
+                });
 
             }
         }
