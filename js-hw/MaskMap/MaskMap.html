@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        let pharmacy_address = [];
+        var maskdata = [];
+
+        function initMap() {
+            var chu = { lat: 24.7573675, lng: 120.9516043 };
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 13, center: chu });
+            var marker = new google.maps.Marker({ position: chu, map: map });
+            $.ajax({
+            type: "Get",
+            url: "http://127.0.0.1:5502/js-hw/MaskMap/MaskData.json",
+            success: function (response) {
+                response.features.forEach(element => {
+                    let obj = { Coordinates: element.geometry.coordinates, Properties: [element.properties] };
+                    maskdata.push(obj);
+                });
+                SearchMask(maskdata);
+                setMarkers(map);
+            }
+
+        });
+        }
+        function SearchMask(data) {
+            data.forEach(item => {
+                pharmacy_address.push([item.Properties[0].name, item.Coordinates[1], item.Coordinates[0]]);
+            })
+        }
+        function setMarkers(map) {
+            var image = {
+                url: 'https://img95.699pic.com/element/40119/1992.png_300.png',
+                // This marker is 20 pixels wide by 32 pixels high.
+                size: new google.maps.Size(20, 32),
+                // The origin for this image is (0, 0).
+                origin: new google.maps.Point(0, 0),
+                // The anchor for this image is the base of the flagpole at (0, 32).
+                anchor: new google.maps.Point(0, 32)
+            };
+            for (var i = 0; i < pharmacy_address.length; i++) {
+                var beach = pharmacy_address[i];
+                var marker = new google.maps.Marker({
+                    position: { lat: beach[1], lng: beach[2] },
+                    map: map,
+                    icon: image,
+                    title: beach[0],
+                });
+            }
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlKWP4uWjQIR3WDAWLAu6rUhBfc3_ppag&callback=initMap"
+        async defer></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

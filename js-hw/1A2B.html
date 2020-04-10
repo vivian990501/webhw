@@ -86,17 +86,17 @@
             for (let game of before) {
                 game.setAttribute('disabled', 'disabled');
             }
-            console.log(answer_str);
-            console.log(answer_num);
+            // console.log(answer_str);
+            // console.log(answer_num);
         }
 
         function guess_number() {
 
             txt_promot.appendChild(promot);
             input_str = document.getElementById('inputnumber').value;
-            console.log(input_str);
+            // console.log(input_str);
             stringtoarray();
-            console.log(input_num);
+            // console.log(input_num);
             JudgeAB();
             show_countofAB();
             countofA = 0;
@@ -113,16 +113,16 @@
         var countofA = 0, countofB = 0;
         function JudgeAB() {
             var intersect = answer_num.filter(num => input_num.includes(num));
-            console.log(intersect);
+            // console.log(intersect);
             var total = intersect.length;
-            console.log(total);
+            // console.log(total);
             for (let i = 0; i < answer_num.length; i++) {
                 if (answer_num[i] == input_num[i]) {
                     countofA++;
                 }
             }
             countofB = total - countofA;
-            console.log(`${countofA}A${countofB}B`);
+            // console.log(`${countofA}A${countofB}B`);
         }
 
         function show_countofAB() {
