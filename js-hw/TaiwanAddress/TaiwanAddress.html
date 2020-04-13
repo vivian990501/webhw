@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src='../Modules/MyHelper.js'></script>
-    <title>title</title>
+    <title>Taiwan Address</title>
     <style>
 
     </style>
@@ -61,31 +61,30 @@
         #Amos在你後面看 */
 
 
-        var body = $g('body');
-        var table = $c('table');
-        var thead = $c('thead');
-        var tbody = $c('tbody');
+        var body = document.getElementsByTagName('body')[0];
+        var table = document.createElement('table');
+        var thead = document.createElement('thead');
+        var tbody = document.createElement('tbody');
         table.setAttribute('border', '2');
 
-        var tbody = $c('tbody')
+        
         table.appendChild(thead);
         table.appendChild(tbody);
         body.appendChild(table);
-        let bnt1 = $g('button');
         var msg = document.getElementsByClassName('msg');
         let zipcodeeArray = '';
         table.classList.add('table', 'table-striped', 'w-50', 'mx-auto');
 
         function addThead(titleArray) {
-            let templateTitle = $g('#templateTitle');
-            thead.appendChild(templateTitle.content)
+            let templateTitle =document.querySelector('#templateTitle');
+            thead.appendChild(templateTitle.content);
         }
 
 
         function addTbody(rowArray) {
 
-            let templateRow = $g('#templateRow');
-
+            let templateRow =document.querySelector('#templateRow');
+            let cloneContent = templateRow.content.cloneNode(true);
 
             //ZipCode[0].Districts[0]
             let city = 0;
@@ -141,7 +140,7 @@
 
 
             }
-            xhr.open('GET', 'http://127.0.0.1/TaiwanAddress/TaiwanAddress.json');
+            xhr.open('GET', 'https://raw.githubusercontent.com/vivian990501/FileStorage/master/TaiwanAddress.json');
             xhr.send();
         }
     </script>
