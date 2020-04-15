@@ -11,6 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6ca253113b.js" crossorigin="anonymous"></script>
     <style>
         /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -25,172 +26,182 @@
             margin: 0;
             padding: 0;
         }
+        .home{
+            right: 0;
+            top:0;
+            color: rgba(100, 100, 100, .3);
+            font-size: 25px;
+        }
+        .home:hover{
+            color: #000;
+        }
     </style>
 </head>
 
 <body>
+    <a href="https://vivianwebhw.azurewebsites.net/AllWebHw.html" class="position-fixed home"><i class="fas fa-home "></i></a>
     <div class="btn_area">
     </div>
     <div id="map"></div>
     <script>
         var city = [
             {
-                name:'基隆市',
-                latlng:{
-                    lat:25.1283999,
-                    lng:121.7410355
+                name: '基隆市',
+                latlng: {
+                    lat: 25.1283999,
+                    lng: 121.7410355
                 }
             },
             {
-            name: "臺北市",
-            latlng: {
-                lat: 25.0375465,
-                lng: 121.562244
-            }
-        },
-        {
-            name: "新北市",
-            latlng: {
-                lat: 25.0123073,
-                lng: 121.4632665
-            }
-        },
+                name: "臺北市",
+                latlng: {
+                    lat: 25.0375465,
+                    lng: 121.562244
+                }
+            },
+            {
+                name: "新北市",
+                latlng: {
+                    lat: 25.0123073,
+                    lng: 121.4632665
+                }
+            },
 
-        {
-            name: "桃園市",
-            latlng: {
-                lat: 24.9931617,
-                lng: 121.2988176
-            }
-        },
-        {
-            name: "新竹縣",
-            latlng: {
-                lat: 24.8268841,
-                lng: 121.010715
-            }
-        },
-        {
-            name: "新竹市",
-            latlng: {
-                lat: 24.7929419,
-                lng: 120.9493054
-            }
-        },
-        
-        {
-            name: "苗栗縣",
-            latlng: {
-                lat: 24.5648599,
-                lng: 120.8185503
-            }
-        },
-        {
-            name: "台中市",//24.1892645,120.6090681
-            latlng: {
-                lat: 25.0375465,
-                lng: 121.562244
-            }
-        },
-        {
-            name:'彰化縣',
-            latlng:{
-                lat:23.957762,
-                lng:120.4701202
-            }
-        },
-        {
-            name: "南投縣",//23.9026841,120.6883151
-            latlng: {
-                lat: 25.0375465,
-                lng: 121.562244
-            }
-        },
-        {
-            name: "雲林縣",//23.6992351,120.5241337
-            latlng: {
-                lat: 23.6992351,
-                lng: 120.5241337
-            }
-        },
-        {
-            name: "嘉義縣",//23.4586677,120.2907749
-            latlng: {
-                lat: 23.4586677,
-                lng: 120.2907749
-            }
-        },
-        {
-            name: "嘉義市",//23.4812545,120.4514023
-            latlng: {
-                lat: 23.4812545,
-                lng: 120.4514023
-            }
-        },
-        {
-            name: "臺南市",//23.1522385,120.101018
-            latlng: {
-                lat: 23.1522385,
-                lng: 120.101018
-            }
-        },
-        {
-            name: "高雄市",//23.152746,120.1003309
-            latlng: {
-                lat: 23.152746,
-                lng: 120.1003309
-            }
-        },
+            {
+                name: "桃園市",
+                latlng: {
+                    lat: 24.9931617,
+                    lng: 121.2988176
+                }
+            },
+            {
+                name: "新竹縣",
+                latlng: {
+                    lat: 24.8268841,
+                    lng: 121.010715
+                }
+            },
+            {
+                name: "新竹市",
+                latlng: {
+                    lat: 24.7929419,
+                    lng: 120.9493054
+                }
+            },
 
-        {
-            name: "屏東縣",//22.6830408,120.4857744
-            latlng: {
-                lat: 22.6830408,
-                lng: 120.4857744
-            }
-        },
-        {
-            name: "宜蘭縣",
-            latlng: {
-                lat: 24.7305437,
-                lng: 121.7619899
-            }
-        },
-        {
-            name: "花蓮縣",//23.9848788,121.5721311
-            latlng: {
-                lat: 23.9848788,
-                lng: 121.5721311
-            }
-        },
-        {
-            name: "臺東縣",//22.7539301,121.1429397
-            latlng: {
-                lat: 22.7539301,
-                lng: 121.1429397
-            }
-        },
-        {
-            name: "澎湖縣",//23.6125491,119.5563255
-            latlng: {
-                lat: 23.6125491,
-                lng: 119.5563255
-            }
-        },
-        {
-            name: "金門縣",//24.4371954,118.3171488
-            latlng: {
-                lat: 24.4371954,
-                lng: 118.3171488
-            }
-        },
-        {
-            name: "連江縣",
-            latlng: {
-                lat: 26.1572524,
-                lng: 119.9482926
-            }
-        },
+            {
+                name: "苗栗縣",
+                latlng: {
+                    lat: 24.5648599,
+                    lng: 120.8185503
+                }
+            },
+            {
+                name: "台中市",//24.1892645,120.6090681
+                latlng: {
+                    lat: 25.0375465,
+                    lng: 121.562244
+                }
+            },
+            {
+                name: '彰化縣',
+                latlng: {
+                    lat: 23.957762,
+                    lng: 120.4701202
+                }
+            },
+            {
+                name: "南投縣",//23.9026841,120.6883151
+                latlng: {
+                    lat: 25.0375465,
+                    lng: 121.562244
+                }
+            },
+            {
+                name: "雲林縣",//23.6992351,120.5241337
+                latlng: {
+                    lat: 23.6992351,
+                    lng: 120.5241337
+                }
+            },
+            {
+                name: "嘉義縣",//23.4586677,120.2907749
+                latlng: {
+                    lat: 23.4586677,
+                    lng: 120.2907749
+                }
+            },
+            {
+                name: "嘉義市",//23.4812545,120.4514023
+                latlng: {
+                    lat: 23.4812545,
+                    lng: 120.4514023
+                }
+            },
+            {
+                name: "臺南市",//23.1522385,120.101018
+                latlng: {
+                    lat: 23.1522385,
+                    lng: 120.101018
+                }
+            },
+            {
+                name: "高雄市",//23.152746,120.1003309
+                latlng: {
+                    lat: 23.152746,
+                    lng: 120.1003309
+                }
+            },
+
+            {
+                name: "屏東縣",//22.6830408,120.4857744
+                latlng: {
+                    lat: 22.6830408,
+                    lng: 120.4857744
+                }
+            },
+            {
+                name: "宜蘭縣",
+                latlng: {
+                    lat: 24.7305437,
+                    lng: 121.7619899
+                }
+            },
+            {
+                name: "花蓮縣",//23.9848788,121.5721311
+                latlng: {
+                    lat: 23.9848788,
+                    lng: 121.5721311
+                }
+            },
+            {
+                name: "臺東縣",//22.7539301,121.1429397
+                latlng: {
+                    lat: 22.7539301,
+                    lng: 121.1429397
+                }
+            },
+            {
+                name: "澎湖縣",//23.6125491,119.5563255
+                latlng: {
+                    lat: 23.6125491,
+                    lng: 119.5563255
+                }
+            },
+            {
+                name: "金門縣",//24.4371954,118.3171488
+                latlng: {
+                    lat: 24.4371954,
+                    lng: 118.3171488
+                }
+            },
+            {
+                name: "連江縣",
+                latlng: {
+                    lat: 26.1572524,
+                    lng: 119.9482926
+                }
+            },
         ];
         let area = document.querySelector('.btn_area');
         function addareabtn() {
@@ -203,14 +214,12 @@
         }
         addareabtn();
         let allbtn = document.querySelectorAll('.btn_city');
-        allbtn.forEach(item=>{
-            item.addEventListener('click',changearea)
+        allbtn.forEach(item => {
+            item.addEventListener('click', changearea)
         })
-        function changearea()
-        {
-            city.forEach(item=>{
-                if(item.name==this.innerText)
-                {
+        function changearea() {
+            city.forEach(item => {
+                if (item.name == this.innerText) {
                     map.setCenter(item.latlng);
                 }
             })
@@ -250,7 +259,7 @@
                 success: function (response) {
                     //let data = JSON.parse(response)
                     // debugger
-                    let data=response;
+                    let data = response;
                     data.features.forEach(element => {
                         pharmacy_address.push([`${element.properties.name}`, element.geometry.coordinates[1], element.geometry.coordinates[0], element.properties.masksLeft, element.properties.childMasksLeft, element.properties.id]);
                     });
