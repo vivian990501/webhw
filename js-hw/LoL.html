@@ -11,12 +11,16 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>LoL</title>
-    <style>
-
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
     </style>
 </head>
 
-<body>
+<body class="bg-dark text-white">
     <div class="container">
         <div class="row">
         </div>
@@ -24,20 +28,24 @@
 
 
     <template id="template">
-        <div class="card col-4 col-md-3 p-0">
-            <img src="" class="card-img-top w-100" alt="" data-toggle="modal" >
+        <div class="card col-4 col-md-3 p-0 bg-dark text-white">
+            <img src="" class="card-img-top w-100" alt="" data-toggle="modal">
             <div class="card-body text-center">
                 <h5 class="card-title"></h5>
                 <span class="price d-block mb-2"></span>
             </div>
         </div>
-        <div class="modal fade"  role="dialog">
+        <div class="modal fade text-dark" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <div class="modal-content">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                        <h5 class="modal-title" ></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal"><span
-                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <p class="modal-txt"></p>
                     </div>
                 </div>
@@ -53,19 +61,23 @@
                 let cloneContent = template.content.cloneNode(true);
                 let img = cloneContent.querySelector('.card-img-top');
                 let title = cloneContent.querySelector('.card-title');
-                let p  =cloneContent.querySelector('.modal-txt')
+                let h5 = cloneContent.querySelector('.modal-title');
+                let p = cloneContent.querySelector('.modal-txt')
                 let span = cloneContent.querySelector('.price')
                 img.setAttribute('src', `${item.Img}`);
                 title.innerText = item.Name;
                 span.innerText = `${item.Price}權力點`;
-                p.innerText=item.Information;
-                let model_fade= cloneContent.querySelector('.modal');
-                model_fade.setAttribute('id',`${item.ID}`);
-                img.setAttribute('data-target',`#${item.ID}`)
-                row.appendChild(cloneContent);      
+                h5.innerHTML=item.Name;
+                p.innerText = item.Information;
+                let model_fade = cloneContent.querySelector('.modal');
+                model_fade.setAttribute('id', `${item.ID}`);
+                img.setAttribute('data-target', `#${item.ID}`)
+                h5.setAttribute('id', `${item.ID}`);
+                row.appendChild(cloneContent);
+                
             })
         }
-        
+
         let data = [];
         let rowdata = '';
         window.onload = function () {
@@ -81,7 +93,7 @@
                             Img: item.gsx$img.$t,
                             Price: item.gsx$price.$t,
                             Information: item.gsx$information.$t,
-                            ID:item.gsx$id.$t
+                            ID: item.gsx$id.$t
                         });
                     });
                     CreateCard(data);
