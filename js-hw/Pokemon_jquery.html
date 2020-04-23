@@ -12,7 +12,7 @@
     <button id='addone' onclick="AddPokemon()">Click +1</button>
     <button id='removeone' onclick="removePokemon()">Clear -1</button>
     <button id='loadall' onclick="allPokemon()">Load All</button>
-
+    <button id='loadall' onclick="removeallPokemon()">Clear All</button>
     <div id='container'></div>
 
     <script>
@@ -111,6 +111,12 @@
             container.removeChild(event.target);
 
             index--;
+        }
+
+        function removeallPokemon()
+        {
+            let img = document.querySelectorAll('img')
+            container.removeChild(img)
         }
     </script>
 </body>
