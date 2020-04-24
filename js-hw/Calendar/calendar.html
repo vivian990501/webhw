@@ -20,16 +20,32 @@
         th {
             text-align: center;
         }
+
+        td {
+            box-sizing: border-box;
+            width: 14.2857%;
+            height: 100px;
+        }
+
+        /* td div{
+            overflow: hidden;
+        } */
+        td:hover {
+            background-color: rgba(222, 222, 222.6);
+        }
+
         span {
-            color: #000
+            color: #000;
+
         }
     </style>
 </head>
 
 <body>
+
     <div class="container">
         <div class="row">
-            <div class="calender mx-auto col-6">
+            <div class="calender mx-auto col-8">
                 <div class=" d-flex justify-content-between mb-3">
                     <button class="btn" onclick="lessmonth()"><i class="fas fa-chevron-left"></i></button>
                     <div class="txt d-flex">
@@ -112,8 +128,29 @@
             </div>
         </div>
     </div>
+
     <!-- Modal -->
-    <div class="modal fade" id="modal_addtodolist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="modal_todolist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">行程</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body todolist input-group mb-3 d-flex align-items-center">
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-primary" id='schedule_del'>刪除行程</button>
+                    <button type="button" class="btn btn-primary" id='schedule_add' onclick="add()">新增行程</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade " id="modal_addtodolist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -146,28 +183,27 @@
             </div>
         </div>
     </div>
-
-
     <!-- Modal -->
-    <div class="modal fade" id="modal_todolist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    <div class="modal fade" id='showtodolist' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">行程</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body todolist">
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button type="button" class="btn btn-primary" id='schedule_del'>刪除行程</button>
-                    <button type="button" class="btn btn-primary" id='schedule_add' onclick="add()">新增行程</button>
+                <div class="modal-body show_todolist">
+                    <p></p>
                 </div>
             </div>
         </div>
     </div>
+    <!-- <div class="input-group mb-3 d-flex align-items-center">
+        <input type="checkbox" aria-label="Checkbox for following text input" class=" ">
+        <span> 3123131</span>
+    </div> -->
     <script>
         let month = document.getElementById('month');
         let year = document.getElementById('year');
@@ -180,8 +216,8 @@
         let firstday = new Date(year_num, month_num, 1).getDay();
         let allday = new Date(year_num, month_num + 1, 0).getDate()
         let clickday = 0;
-        let showlist = document.getElementsByClassName('todolist')[0];
-
+        let todolist = document.getElementsByClassName('todolist')[0];
+        let showlist = document.getElementsByClassName('showtodolist')[0];
         tds.forEach(el => {
             let p = document.createElement('p');
             el.appendChild(p);
@@ -198,6 +234,7 @@
                 // debugger
                 let scheduleObj;
                 let ul_container = document.querySelectorAll('.ul_container');
+                ul_container[firstday].innerHTML = '';
                 if (localStorage.getItem(`${year_num}${month_num}${i}`) != null) {
                     scheduleObj = JSON.parse(localStorage.getItem(`${year_num}${month_num}${i}`))
                     // debugger
@@ -208,8 +245,9 @@
                         let span = document.createElement('span')
                         span.innerHTML = `${scheduleObj[0].title}`;
                         li.appendChild(span);
+                        span.style.wordBreak='break-all'
                         ul.appendChild(li);
-                        li.style.color = `${scheduleObj[j].color}`
+                        li.style.color = `${scheduleObj[0].color}`
                     }
                     else {
                         for (let j = 0; j < 2; j++) {
@@ -229,18 +267,26 @@
                 // tds[firstday].setAttribute('data-target', "#modal_todolist")
                 tds[firstday].onclick = function () {
                     clickday = this.children[0].textContent;
-                    showlist.innerHTML = ''
+                    todolist.innerHTML = ''
                     let ul = document.createElement('ul')
                     if (localStorage.getItem(`${year_num}${month_num}${clickday}`) != null) {
                         for (let item of scheduleObj) {
                             let li = document.createElement('li');
-                            let span = document.createElement('span')
+                            let span = document.createElement('span');
                             span.innerHTML = `${item.title}`;
                             li.appendChild(span);
                             ul.appendChild(li);
+
+                            li.onclick = function () {
+                                let md_head_h5 = document.querySelector('#showtodolist .modal-header h5');
+                                md_head_h5.innerHTML = `${item.title}`;
+                                let md_body_p = document.querySelector('#showtodolist .modal-body p');
+                                md_body_p.innerText = `${item.description}`;
+                                $('#showtodolist').modal('show');
+                            }
                         }
                     }
-                    showlist.appendChild(ul)
+                    todolist.appendChild(ul)
                     $('#modal_todolist').modal('show')
                 }
                 firstday++;
