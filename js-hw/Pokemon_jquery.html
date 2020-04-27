@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>寶可夢</title>
 </head>
 
 <body>
@@ -37,7 +39,7 @@
             img.addEventListener('click', removeImg);
 
             //5. add <img> into <div>
-            container.appendChild(img);
+            $('#container').append(img);
 
             index++;
         }
@@ -48,7 +50,7 @@
             let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
             let pokemonImg = `<img src='${pathFile}' />`;
 
-            container.innerHTML = pokemonImg;
+            $('#container').innerHTML = pokemonImg;
 
             index++;
         }
@@ -61,11 +63,11 @@
             let no = index.toString().padStart(3, '0');
             img.setAttribute('src', `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${no}.png`);
 
-            img.setAttribute('id',no);
+            img.setAttribute('id', no);
             img.addEventListener('click', removeImg);
 
             //3. add <img> into <div>
-            container.appendChild(img);
+            $('#container').append(img);
 
             index++;
         }
@@ -80,12 +82,12 @@
         }
 
         //一次載入所有的Pokemon圖片
-        function allPokemon(){
+        function allPokemon() {
 
             for (let i = 1; i < 890; i++) {
                 let fileName = i.toString().padStart(3, '0');
                 let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
-                
+
                 //建立<img src=''>元素
                 let img = document.createElement('img');
                 img.setAttribute('src', pathFile);
@@ -94,12 +96,12 @@
                 //加入DOM元素
                 container.appendChild(img);
 
-                index++;
+                // index++;
             }
         }
 
         //Click圖片後，根據圖片data-index索引值移除<img>
-        function removeImg(event){
+        function removeImg(event) {
             // alert('你觸發了click移除事件');
 
             // console.log(event.type);
@@ -113,10 +115,9 @@
             index--;
         }
 
-        function removeallPokemon()
-        {
-            let img = document.querySelectorAll('img')
-            container.removeChild(img)
+        function removeallPokemon() {
+            $('#container').html(null)
+            index=1
         }
     </script>
 </body>
