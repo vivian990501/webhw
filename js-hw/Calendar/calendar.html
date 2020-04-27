@@ -45,7 +45,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="calender mx-auto col-8">
+            <div class="calender mx-auto col-10">
                 <div class=" d-flex justify-content-between mb-3">
                     <button class="btn" onclick="lessmonth()"><i class="fas fa-chevron-left"></i></button>
                     <div class="txt d-flex">
@@ -189,7 +189,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close del_close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -197,7 +197,7 @@
                     <p></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id='schedule_del'>刪除行程</button>
+                    <button type="button" class="btn btn-primary" id='schedule_del' onclick="del()">刪除行程</button>
                 </div>
             </div>
         </div>
@@ -220,6 +220,8 @@
         let clickday = 0;
         let todolist = document.getElementsByClassName('todolist')[0];
         let showlist = document.getElementsByClassName('showtodolist')[0];
+
+
         tds.forEach(el => {
             let p = document.createElement('p');
             el.appendChild(p);
@@ -247,7 +249,7 @@
                         let span = document.createElement('span')
                         span.innerHTML = `${scheduleObj[0].title}`;
                         li.appendChild(span);
-                        span.style.wordBreak='break-all'
+                        // span.style.wordBreak='break-all'
                         ul.appendChild(li);
                         li.style.color = `${scheduleObj[0].color}`
                     }
@@ -261,9 +263,7 @@
                             li.style.color = `${scheduleObj[j].color}`
                         }
                     }
-
                     ul_container[firstday].appendChild(ul);
-
                 }
                 // tds[firstday].setAttribute('data-toggle', "modal")
                 // tds[firstday].setAttribute('data-target', "#modal_todolist")
@@ -285,6 +285,7 @@
                                 let md_body_p = document.querySelector('#showtodolist .modal-body p');
                                 md_body_p.innerText = `${item.description}`;
                                 $('#showtodolist').modal('show');
+                                $('#modal_todolist').modal('hide')
                             }
                         }
                     }
@@ -397,6 +398,34 @@
         function add() {
             $('#modal_addtodolist').modal('show')
             $('#modal_todolist').modal('hide')
+        }
+        function del() {
+            let title = document.querySelector('#showtodolist h5').textContent;
+            let p = document.querySelector('#showtodolist p').textContent;
+            let id = `${year_num}${month_num}${clickday}`;
+            let scheduleObj = JSON.parse(localStorage.getItem(`${year_num}${month_num}${clickday}`))
+            // debugger
+            let sc = [];
+            if (scheduleObj.length == 1) {
+                localStorage.removeItem(id)
+            }
+            else {
+                scheduleObj.forEach(el => {
+                    if (el.title == title && el.description == p) {
+                        
+                    }
+                    else
+                    {
+                        sc.push(el);
+                    }
+                })
+                let txt_sc = JSON.stringify(sc);
+                localStorage.setItem(`${id}`, `${txt_sc}`);
+            }
+            firstday = new Date(year_num, month_num, 1).getDay();
+            cleardate();
+            adddate();
+            $('#showtodolist').modal('hide');
         }
     </script>
 
