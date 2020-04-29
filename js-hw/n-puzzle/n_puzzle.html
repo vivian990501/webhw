@@ -125,7 +125,7 @@
                     var allblocks = document.querySelectorAll('.puzzle_area canvas');
                     for(let i = 0 ; i<allblocks.length;i++)
                     {
-                        debugger
+                        // debugger
                         if(solution[i].top==allblocks[i].offsetTop &&solution[i].left==allblocks[i].offsetLeft)
                         {
                             sum++
@@ -149,7 +149,7 @@
             let step = 200;
             while (step > 0) {
                 let ran = Math.floor(Math.random() * 7);
-                // console.log(ran)
+                //  console.log(ran)
                 var canvasBlocks = document.querySelectorAll('.moveable');
                 // console.log(canvasBlocks);
                 // console.log(canvasBlocks[ran]);
