@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .puzzle-area {
+            position: relative;
+        }
+
+        .puzzle-area * {
+            vertical-align: bottom;
+
+        }
+
+        .puzzle_area canvas {
+            display: table-cell;
+            border: 1px solid #777777;
+            cursor: pointer;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="puzzle_area col-4 d-flex justify-content-start flex-wrap w-100 p-0">
+            </div>
+            <div class="btn_area col-6 col-md-4 d-flex justify-content-end justify-content-md-start">
+                <button id="start" onclick="start()">開始</button>
+            </div>
+        </div>
+    </div>
+    <!-- <img src="https://picsum.photos/300/300/?random=1"> -->
+    <script>
+        let area = document.getElementsByClassName('puzzle_area')[0];
+
+        var img_puzzle = new Image();
+        // img_puzzle.src = "https://picsum.photos/300/300/?random=1";
+        img_puzzle.src = './pic/250.jpg'
+        var img_white = new Image();
+        img_white.src = './pic/white.png';
+        var puzzle = document.querySelectorAll('.puzzle_area canvas');
+
+        let multiply = 3
+        let solution = [];
+        img_puzzle.onload = function () {
+            let p_width = img_puzzle.width / multiply;
+            let p_height = img_puzzle.height / multiply;
+            // debugger
+            for (let i = 0; i < multiply; i++) {
+                for (let j = 0; j < multiply; j++) {
+                    let canvas = document.createElement('canvas');
+                    canvas.setAttribute('id', `p${i}${j}`);
+                    canvas.height = p_height;
+                    canvas.width = p_width;
+                    let canvasContent = canvas.getContext("2d");
+                    if (i == 0 && j == 0) {
+                        canvasContent.drawImage(img_white, j * p_width, i * p_height, p_width, p_height, 0, 0, p_width, p_height);
+                        canvas.classList.add('white')
+                        canvas.style.cssText = "top:0px;left:0px;";
+                        solution.push({top:0,left:0})
+                    }
+                    else {
+                        canvasContent.drawImage(img_puzzle, j * p_width, i * p_height, p_width, p_height, 0, 0, p_width, p_height);
+                        canvas.classList.add('moveable')
+                        canvas.style.cssText = `top:${i * p_height}px;left:${j * p_width}px;`;
+                        solution.push({top:i * p_height,left:j * p_width});
+                    }
+                    area.appendChild(canvas);
+                }
+            }
+        }
+        
+        window.onload = function () {
+            var canvasBlocks = document.getElementsByClassName('moveable');
+            // console.log(canvasBlocks);
+            let p_width = img_puzzle.width / multiply;
+            let p_height = img_puzzle.height / multiply;
+            for (let block of canvasBlocks) {
+                block.addEventListener('click', function () {
+                    var whiteBlock = document.getElementsByClassName('white')[0];
+                    //判斷是否可以被移動
+                    //--1.判斷自己是否在白色塊上下左右???
+                    // console.log(this.offsetTop);
+                    // console.log(this.offsetLeft);
+
+                    // 獲得相對於上層的Y座標
+                    // console.log(whiteBlock.offsetTop)
+                    // 獲得相對於上層的X座標
+                    // console.log(whiteBlock.offsetLeft)
+                    // debugger
+                    if (this.offsetTop == whiteBlock.offsetTop && (this.offsetLeft + p_width == whiteBlock.offsetLeft || this.offsetLeft - p_width == whiteBlock.offsetLeft)) {
+                        // console.log('x')
+                        let this_x = this.offsetLeft;
+                        let this_y = this.offsetTop;
+                        this.style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
+                        whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
+                        // debugger
+                    }
+                    else if (this.offsetLeft == whiteBlock.offsetLeft && (this.offsetTop + p_width == whiteBlock.offsetTop || this.offsetTop - p_width == whiteBlock.offsetTop)) {
+                        // console.log('y')
+                        let this_x = this.offsetLeft;
+                        let this_y = this.offsetTop;
+                        // debugger
+                        this.style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
+                        whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
+                    }
+                    let sum=0;
+                    var allblocks = document.querySelectorAll('.puzzle_area canvas');
+                    for(let i = 0 ; i<allblocks.length;i++)
+                    {
+                        debugger
+                        if(solution[i].top==allblocks[i].offsetTop &&solution[i].left==allblocks[i].offsetLeft)
+                        {
+                            sum++
+                        }   
+                        
+                    }
+                    // debugger
+                    if(sum==allblocks.length)
+                    {
+                        sum=0;
+                        var success = setTimeout("alert('遊戲結束')", 300);
+                    }
+                    //移動方法
+                    //--1.白色塊與自己交換'位置'
+                    //判斷輸贏
+                });
+            }
+        }
+        function start() {
+
+            let step = 200;
+            while (step > 0) {
+                let ran = Math.floor(Math.random() * 7);
+                // console.log(ran)
+                if (ran != 0) {
+                    ran--;
+                }
+                var canvasBlocks = document.querySelectorAll('.moveable');
+                // console.log(canvasBlocks);
+                // console.log(canvasBlocks[ran]);
+                let p_width = img_puzzle.width / multiply;
+                let p_height = img_puzzle.height / multiply;
+                var whiteBlock = document.getElementsByClassName('white')[0];
+                // debugger
+                if (canvasBlocks[ran].offsetTop == whiteBlock.offsetTop && (canvasBlocks[ran].offsetLeft + p_width == whiteBlock.offsetLeft || canvasBlocks[ran].offsetLeft - p_width == whiteBlock.offsetLeft)) {
+                    // console.log('x')
+                    let this_x = canvasBlocks[ran].offsetLeft;
+                    let this_y = canvasBlocks[ran].offsetTop;
+                    canvasBlocks[ran].style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
+                    whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
+                    step--;
+                    // debugger
+                }
+                else if (canvasBlocks[ran].offsetLeft == whiteBlock.offsetLeft && (canvasBlocks[ran].offsetTop + p_width == whiteBlock.offsetTop || canvasBlocks[ran].offsetTop - p_width == whiteBlock.offsetTop)) {
+                    // console.log('y')
+                    let this_x = canvasBlocks[ran].offsetLeft;
+                    let this_y = canvasBlocks[ran].offsetTop;
+                    // debugger
+                    canvasBlocks[ran].style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
+                    whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
+                    step--;
+                }
+                // debugger
+            }
+        }
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

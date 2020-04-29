@@ -249,7 +249,7 @@
                         let span = document.createElement('span')
                         span.innerHTML = `${scheduleObj[0].title}`;
                         li.appendChild(span);
-                        span.style.wordBreak='break-all'
+                        span.style.wordBreak = 'break-all'
                         ul.appendChild(li);
                         li.style.color = `${scheduleObj[0].color}`
                     }
@@ -269,28 +269,31 @@
                 // tds[firstday].setAttribute('data-target', "#modal_todolist")
                 tds[firstday].onclick = function () {
                     clickday = this.children[0].textContent;
-                    todolist.innerHTML = ''
-                    let ul = document.createElement('ul')
-                    if (localStorage.getItem(`${year_num}${month_num}${clickday}`) != null) {
-                        for (let item of scheduleObj) {
-                            let li = document.createElement('li');
-                            let span = document.createElement('span');
-                            span.innerHTML = `${item.title}`;
-                            li.appendChild(span);
-                            ul.appendChild(li);
 
-                            li.onclick = function () {
-                                let md_head_h5 = document.querySelector('#showtodolist .modal-header h5');
-                                md_head_h5.innerHTML = `${item.title}`;
-                                let md_body_p = document.querySelector('#showtodolist .modal-body p');
-                                md_body_p.innerText = `${item.description}`;
-                                $('#showtodolist').modal('show');
-                                $('#modal_todolist').modal('hide')
+                    if (clickday != '') {
+                        todolist.innerHTML = ''
+                        let ul = document.createElement('ul')
+                        if (localStorage.getItem(`${year_num}${month_num}${clickday}`) != null) {
+                            for (let item of scheduleObj) {
+                                let li = document.createElement('li');
+                                let span = document.createElement('span');
+                                span.innerHTML = `${item.title}`;
+                                li.appendChild(span);
+                                ul.appendChild(li);
+
+                                li.onclick = function () {
+                                    let md_head_h5 = document.querySelector('#showtodolist .modal-header h5');
+                                    md_head_h5.innerHTML = `${item.title}`;
+                                    let md_body_p = document.querySelector('#showtodolist .modal-body p');
+                                    md_body_p.innerText = `${item.description}`;
+                                    $('#showtodolist').modal('show');
+                                    $('#modal_todolist').modal('hide')
+                                }
                             }
                         }
+                        todolist.appendChild(ul)
+                        $('#modal_todolist').modal('show')
                     }
-                    todolist.appendChild(ul)
-                    $('#modal_todolist').modal('show')
                 }
                 firstday++;
             }
@@ -301,9 +304,10 @@
 
         function cleardate() {
 
+            let ps = document.querySelectorAll('td p');
+
             for (let j = 0; j < tds.length; j++) {
                 // debugger
-                let ps = document.querySelectorAll('td p');
                 ps[j].innerText = '';
                 //tds[j].removeAttribute('data-toggle', 'data-target')
             }
@@ -412,10 +416,9 @@
             else {
                 scheduleObj.forEach(el => {
                     if (el.title == title && el.description == p) {
-                        
+
                     }
-                    else
-                    {
+                    else {
                         sc.push(el);
                     }
                 })
