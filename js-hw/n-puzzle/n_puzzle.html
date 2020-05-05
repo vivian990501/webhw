@@ -59,6 +59,7 @@
         function change() {
             multiply = document.getElementById('inputState').value;
             area.innerHTML = '';
+            solution = [];
             createpuzzle();
         }
         var img_puzzle = new Image();
@@ -96,66 +97,112 @@
                         canvas.classList.add('moveable')
                         canvas.style.cssText = `top:${i * p_height}px;left:${j * p_width}px;`;
                         solution.push({ top: i * p_height, left: j * p_width });
+                        canvas.addEventListener('click', function () {
+                            var whiteBlock = document.getElementsByClassName('white')[0];
+                            //判斷是否可以被移動
+                            //--1.判斷自己是否在白色塊上下左右???
+                            // console.log(this.offsetTop);
+                            // console.log(this.offsetLeft);
+
+                            // 獲得相對於上層的Y座標
+                            // console.log(whiteBlock.offsetTop)
+                            // 獲得相對於上層的X座標
+                            // console.log(whiteBlock.offsetLeft)
+                            // debugger
+                            if (this.offsetTop == whiteBlock.offsetTop && (this.offsetLeft + p_width == whiteBlock.offsetLeft || this.offsetLeft - p_width == whiteBlock.offsetLeft)) {
+                                // console.log('x')
+                                let this_x = this.offsetLeft;
+                                let this_y = this.offsetTop;
+                                this.style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
+                                whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
+                                // debugger
+                            }
+                            else if (this.offsetLeft == whiteBlock.offsetLeft && (this.offsetTop + p_width == whiteBlock.offsetTop || this.offsetTop - p_width == whiteBlock.offsetTop)) {
+                                // console.log('y')
+                                let this_x = this.offsetLeft;
+                                let this_y = this.offsetTop;
+                                // debugger
+                                this.style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
+                                whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
+                            }
+                            let sum = 0;
+                            var allblocks = document.querySelectorAll('.puzzle_area canvas');
+                            for (let i = 0; i < allblocks.length; i++) {
+                                // debugger
+                                if (solution[i].top == allblocks[i].offsetTop && solution[i].left == allblocks[i].offsetLeft) {
+                                    sum++
+                                }
+
+                            }
+                            // debugger
+                            if (sum == allblocks.length) {
+                                sum = 0;
+                                var success = setTimeout("alert('遊戲結束')", 300);
+                            }
+                            //移動方法
+                            //--1.白色塊與自己交換'位置'
+                            //判斷輸贏
+                        });
                     }
                     area.appendChild(canvas);
                 }
             }
         }
-        window.onload = function () {
-            var canvasBlocks = document.getElementsByClassName('moveable');
-            // console.log(canvasBlocks);
-            let p_width = img_puzzle.width / multiply;
-            let p_height = img_puzzle.height / multiply;
-            for (let block of canvasBlocks) {
-                block.addEventListener('click', function () {
-                    var whiteBlock = document.getElementsByClassName('white')[0];
-                    //判斷是否可以被移動
-                    //--1.判斷自己是否在白色塊上下左右???
-                    // console.log(this.offsetTop);
-                    // console.log(this.offsetLeft);
+        // window.onload = function () {
+        //     var canvasBlocks = document.getElementsByClassName('moveable');
+        //     // console.log(canvasBlocks);
+        //     let p_width = img_puzzle.width / multiply;
+        //     let p_height = img_puzzle.height / multiply;
+        //     for (let block of canvasBlocks) {
+        //         block.addEventListener('click', function () {
+        //             var whiteBlock = document.getElementsByClassName('white')[0];
+        //             //判斷是否可以被移動
+        //             //--1.判斷自己是否在白色塊上下左右???
+        //             // console.log(this.offsetTop);
+        //             // console.log(this.offsetLeft);
 
-                    // 獲得相對於上層的Y座標
-                    // console.log(whiteBlock.offsetTop)
-                    // 獲得相對於上層的X座標
-                    // console.log(whiteBlock.offsetLeft)
-                    // debugger
-                    if (this.offsetTop == whiteBlock.offsetTop && (this.offsetLeft + p_width == whiteBlock.offsetLeft || this.offsetLeft - p_width == whiteBlock.offsetLeft)) {
-                        // console.log('x')
-                        let this_x = this.offsetLeft;
-                        let this_y = this.offsetTop;
-                        this.style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
-                        whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
-                        // debugger
-                    }
-                    else if (this.offsetLeft == whiteBlock.offsetLeft && (this.offsetTop + p_width == whiteBlock.offsetTop || this.offsetTop - p_width == whiteBlock.offsetTop)) {
-                        // console.log('y')
-                        let this_x = this.offsetLeft;
-                        let this_y = this.offsetTop;
-                        // debugger
-                        this.style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
-                        whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
-                    }
-                    let sum = 0;
-                    var allblocks = document.querySelectorAll('.puzzle_area canvas');
-                    for (let i = 0; i < allblocks.length; i++) {
-                        // debugger
-                        if (solution[i].top == allblocks[i].offsetTop && solution[i].left == allblocks[i].offsetLeft) {
-                            sum++
-                        }
+        //             // 獲得相對於上層的Y座標
+        //             // console.log(whiteBlock.offsetTop)
+        //             // 獲得相對於上層的X座標
+        //             // console.log(whiteBlock.offsetLeft)
+        //             // debugger
+        //             if (this.offsetTop == whiteBlock.offsetTop && (this.offsetLeft + p_width == whiteBlock.offsetLeft || this.offsetLeft - p_width == whiteBlock.offsetLeft)) {
+        //                 // console.log('x')
+        //                 let this_x = this.offsetLeft;
+        //                 let this_y = this.offsetTop;
+        //                 this.style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
+        //                 whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
+        //                 // debugger
+        //             }
+        //             else if (this.offsetLeft == whiteBlock.offsetLeft && (this.offsetTop + p_width == whiteBlock.offsetTop || this.offsetTop - p_width == whiteBlock.offsetTop)) {
+        //                 // console.log('y')
+        //                 let this_x = this.offsetLeft;
+        //                 let this_y = this.offsetTop;
+        //                 // debugger
+        //                 this.style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
+        //                 whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
+        //             }
+        //             let sum = 0;
+        //             var allblocks = document.querySelectorAll('.puzzle_area canvas');
+        //             for (let i = 0; i < allblocks.length; i++) {
+        //                 // debugger
+        //                 if (solution[i].top == allblocks[i].offsetTop && solution[i].left == allblocks[i].offsetLeft) {
+        //                     sum++
+        //                 }
 
-                    }
-                    // debugger
-                    if (sum == allblocks.length) {
-                        sum = 0;
-                        var success = setTimeout("alert('遊戲結束')", 300);
-                    }
-                    //移動方法
-                    //--1.白色塊與自己交換'位置'
-                    //判斷輸贏
-                });
-            }
-        }
-        
+        //             }
+        //             // debugger
+        //             if (sum == allblocks.length) {
+        //                 sum = 0;
+        //                 var success = setTimeout("alert('遊戲結束')", 300);
+        //             }
+        //             //移動方法
+        //             //--1.白色塊與自己交換'位置'
+        //             //判斷輸贏
+        //         });
+        //     }
+        // }
+
         function start() {
 
             let step = 300;
@@ -214,7 +261,7 @@
                     whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
                     console.log(i);
                 }
-                , 10 * i);
+                    , 10 * i);
                 //settimeout是同步的時間軸  是讓他看起來第一秒執行一次 第二秒執行第二次 所以看起來有一步一步的感覺
             }
         }
