@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>title</title>
+    <title>n-puzzle</title>
     <style>
         * {
             padding: 0;
@@ -43,13 +43,24 @@
             </div>
             <div class="btn_area col-6 col-md-4 d-flex justify-content-end justify-content-md-start">
                 <button id="start" onclick="start()">開始</button>
+                <select id="inputState" onchange="change()" class="ml-2">
+                    <option selected value='3'>3x3</option>
+                    <option value="4">4x4</option>
+                    <option value="5">5x5</option>
+                </select>
+                <button id='answer' onclick="goback()">返回</button>
             </div>
         </div>
     </div>
     <!-- <img src="https://picsum.photos/300/300/?random=1"> -->
     <script>
         let area = document.getElementsByClassName('puzzle_area')[0];
-
+        let multiply = document.getElementById('inputState').value;
+        function change() {
+            multiply = document.getElementById('inputState').value;
+            area.innerHTML = '';
+            createpuzzle();
+        }
         var img_puzzle = new Image();
         // img_puzzle.src = "https://picsum.photos/300/300/?random=1";
         img_puzzle.src = './pic/250.jpg'
@@ -57,12 +68,16 @@
         img_white.src = './pic/white.png';
         var puzzle = document.querySelectorAll('.puzzle_area canvas');
 
-        let multiply = 3
+        let ans = [];
         let solution = [];
         img_puzzle.onload = function () {
+
+            // debugger
+            createpuzzle();
+        }
+        function createpuzzle() {
             let p_width = img_puzzle.width / multiply;
             let p_height = img_puzzle.height / multiply;
-            // debugger
             for (let i = 0; i < multiply; i++) {
                 for (let j = 0; j < multiply; j++) {
                     let canvas = document.createElement('canvas');
@@ -74,19 +89,18 @@
                         canvasContent.drawImage(img_white, j * p_width, i * p_height, p_width, p_height, 0, 0, p_width, p_height);
                         canvas.classList.add('white')
                         canvas.style.cssText = "top:0px;left:0px;";
-                        solution.push({top:0,left:0})
+                        solution.push({ top: 0, left: 0 })
                     }
                     else {
                         canvasContent.drawImage(img_puzzle, j * p_width, i * p_height, p_width, p_height, 0, 0, p_width, p_height);
                         canvas.classList.add('moveable')
                         canvas.style.cssText = `top:${i * p_height}px;left:${j * p_width}px;`;
-                        solution.push({top:i * p_height,left:j * p_width});
+                        solution.push({ top: i * p_height, left: j * p_width });
                     }
                     area.appendChild(canvas);
                 }
             }
         }
-        
         window.onload = function () {
             var canvasBlocks = document.getElementsByClassName('moveable');
             // console.log(canvasBlocks);
@@ -121,21 +135,18 @@
                         this.style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
                         whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
                     }
-                    let sum=0;
+                    let sum = 0;
                     var allblocks = document.querySelectorAll('.puzzle_area canvas');
-                    for(let i = 0 ; i<allblocks.length;i++)
-                    {
+                    for (let i = 0; i < allblocks.length; i++) {
                         // debugger
-                        if(solution[i].top==allblocks[i].offsetTop &&solution[i].left==allblocks[i].offsetLeft)
-                        {
+                        if (solution[i].top == allblocks[i].offsetTop && solution[i].left == allblocks[i].offsetLeft) {
                             sum++
-                        }   
-                        
+                        }
+
                     }
                     // debugger
-                    if(sum==allblocks.length)
-                    {
-                        sum=0;
+                    if (sum == allblocks.length) {
+                        sum = 0;
                         var success = setTimeout("alert('遊戲結束')", 300);
                     }
                     //移動方法
@@ -144,13 +155,16 @@
                 });
             }
         }
+        
         function start() {
 
-            let step = 200;
+            let step = 300;
             while (step > 0) {
-                let ran = Math.floor(Math.random() * 7);
-                //  console.log(ran)
                 var canvasBlocks = document.querySelectorAll('.moveable');
+                let length = canvasBlocks.length - 1;
+                let ran = Math.floor(Math.random() * length);
+                // console.log(ran)
+                // debugger
                 // console.log(canvasBlocks);
                 // console.log(canvasBlocks[ran]);
                 let p_width = img_puzzle.width / multiply;
@@ -164,6 +178,7 @@
                     canvasBlocks[ran].style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
                     whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
                     step--;
+                    ans.push(ran);
                     // debugger
                 }
                 else if (canvasBlocks[ran].offsetLeft == whiteBlock.offsetLeft && (canvasBlocks[ran].offsetTop + p_width == whiteBlock.offsetTop || canvasBlocks[ran].offsetTop - p_width == whiteBlock.offsetTop)) {
@@ -174,8 +189,33 @@
                     canvasBlocks[ran].style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
                     whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
                     step--;
+                    ans.push(ran);
                 }
                 // debugger
+            }
+        }
+
+
+        function goback() {
+            var canvasBlocks = document.querySelectorAll('.moveable');
+            var whiteBlock = document.getElementsByClassName('white')[0];
+
+            let rAns = ans.reverse();
+            // debugger
+            for (let i = 0; i < rAns.length; i++) {
+                //for (let i = ans.length - 1; i > -1; i--) {
+                // debugger
+                setTimeout(function () {
+                    let this_x = canvasBlocks[ans[i]].offsetLeft;
+                    let this_y = canvasBlocks[ans[i]].offsetTop;
+                    // debugger
+                    // var success = setTimeout(" ", 10);
+                    canvasBlocks[ans[i]].style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
+                    whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
+                    console.log(i);
+                }
+                , 10 * i);
+                //settimeout是同步的時間軸  是讓他看起來第一秒執行一次 第二秒執行第二次 所以看起來有一步一步的感覺
             }
         }
     </script>
