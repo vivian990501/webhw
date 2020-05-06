@@ -76,6 +76,10 @@
             // debugger
             createpuzzle();
         }
+        function theSame(s1,s2)
+        {
+            return parseInt(s1)==parseInt(s2)
+        }
         function createpuzzle() {
             let p_width = img_puzzle.width / multiply;
             let p_height = img_puzzle.height / multiply;
@@ -109,7 +113,7 @@
                             // 獲得相對於上層的X座標
                             // console.log(whiteBlock.offsetLeft)
                             // debugger
-                            if (this.offsetTop == whiteBlock.offsetTop && (this.offsetLeft + p_width == whiteBlock.offsetLeft || this.offsetLeft - p_width == whiteBlock.offsetLeft)) {
+                            if (this.offsetTop == whiteBlock.offsetTop && (theSame(this.offsetLeft + p_width) == theSame(whiteBlock.offsetLeft) || theSame(this.offsetLeft - p_width) == theSame(whiteBlock.offsetLeft))) {
                                 // console.log('x')
                                 let this_x = this.offsetLeft;
                                 let this_y = this.offsetTop;
@@ -117,7 +121,7 @@
                                 whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
                                 // debugger
                             }
-                            else if (this.offsetLeft == whiteBlock.offsetLeft && (this.offsetTop + p_width == whiteBlock.offsetTop || this.offsetTop - p_width == whiteBlock.offsetTop)) {
+                            else if (this.offsetLeft == whiteBlock.offsetLeft && (theSame(this.offsetTop + p_width) == theSame(whiteBlock.offsetTop )|| theSame(this.offsetTop) - p_width == theSame(whiteBlock.offsetTop))) {
                                 // console.log('y')
                                 let this_x = this.offsetLeft;
                                 let this_y = this.offsetTop;
