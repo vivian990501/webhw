@@ -10,26 +10,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- <script src='../作業/Modules/MyHelper.js'></script> -->
-    <title>title</title>
-    <style>
-
+    <title>作品集</title>
+    <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            a{
+                list-style: none;
+                color: black;
+                text-decoration: none;
+            }
+            a:hover{
+                color:#aaa;
+                text-decoration: none;
+            }
+            
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
+    <div class="container p-0">
+        <div class="row m-0 p-auto">
         </div>
     </div>
     <template id="template">
-        <div class="card col-4 col-md-3">
+        <div class="card col-12 col-sm-6 col-md-4 col-lg-3 my-2 border-0">
             <img src="" class="card-img-top" alt="">
             <div class="card-body">
-                <h5 class="card-title"></h5>
+                <a class="product_link" href=""><h5 class="card-title"></h5></a>
                 <p class="card-text"></p>
-                <a href="#" class="btn btn-primary">Link</a>
             </div>
-            <a href=""></a>
         </div>
     </template>
     <script type="module">
@@ -45,11 +57,11 @@
                 let img = cloneContent.querySelector('.card-img-top');
                 let title = cloneContent.querySelector('.card-title');
                 let p = cloneContent.querySelector('.card-text');
-                let link = cloneContent.querySelector('.btn');
+                let link = cloneContent.querySelector('.product_link');
 
-                img.setAttribute('src','https://picsum.photos/300/300/?random=1');
+                img.setAttribute('src',`${item.Img}`);
                 title.innerText=item.Name;
-                p.innerText=item.Information;
+                // p.innerText=item.Information;
                 link.setAttribute('href',item.url);
                 row.appendChild(cloneContent);
             })

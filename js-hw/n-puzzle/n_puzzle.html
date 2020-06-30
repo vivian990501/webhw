@@ -48,7 +48,7 @@
                     <option value="4">4x4</option>
                     <option value="5">5x5</option>
                 </select>
-                <button id='answer' onclick="goback()">返回</button>
+                <!-- <button id='answer' onclick="goback()">返回</button> -->
             </div>
         </div>
     </div>
@@ -247,28 +247,28 @@
         }
 
 
-        function goback() {
-            var canvasBlocks = document.querySelectorAll('.moveable');
-            var whiteBlock = document.getElementsByClassName('white')[0];
+        // function goback() {
+        //     var canvasBlocks = document.querySelectorAll('.moveable');
+        //     var whiteBlock = document.getElementsByClassName('white')[0];
 
-            let rAns = ans.reverse();
-            // debugger
-            for (let i = 0; i < rAns.length; i++) {
-                //for (let i = ans.length - 1; i > -1; i--) {
-                // debugger
-                setTimeout(function () {
-                    let this_x = canvasBlocks[ans[i]].offsetLeft;
-                    let this_y = canvasBlocks[ans[i]].offsetTop;
-                    // debugger
-                    // var success = setTimeout(" ", 10);
-                    canvasBlocks[ans[i]].style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
-                    whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
-                    console.log(i);
-                }
-                    , 10 * i);
-                //settimeout是同步的時間軸  是讓他看起來第一秒執行一次 第二秒執行第二次 所以看起來有一步一步的感覺
-            }
-        }
+        //     let rAns = ans.reverse();
+        //     // debugger
+        //     for (let i = 0; i < rAns.length; i++) {
+        //         //for (let i = ans.length - 1; i > -1; i--) {
+        //         // debugger
+        //         setTimeout(function () {
+        //             let this_x = canvasBlocks[ans[i]].offsetLeft;
+        //             let this_y = canvasBlocks[ans[i]].offsetTop;
+        //             // debugger
+        //             // var success = setTimeout(" ", 10);
+        //             canvasBlocks[ans[i]].style.cssText = `top:${whiteBlock.offsetTop}px;left:${whiteBlock.offsetLeft}px;`;
+        //             whiteBlock.style.cssText = `top:${this_y}px;left:${this_x}px;`;
+        //             console.log(i);
+        //         }
+        //             , 10 * i);
+        //         //settimeout是同步的時間軸  是讓他看起來第一秒執行一次 第二秒執行第二次 所以看起來有一步一步的感覺
+        //     }
+        // }
     </script>
 
 
