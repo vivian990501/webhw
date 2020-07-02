@@ -31,22 +31,25 @@
             }
             h5{
                 font-family: Microsoft JhengHei;
+                font-weight: 700;
             }
             
     </style>
 </head>
 
 <body>
-    <div class="container p-0">
+    <div class="container p-0 py-2">
         <div class="row m-0 p-auto">
         </div>
     </div>
     <template id="template">
         <div class="card col-12 col-sm-6 col-md-4 col-lg-3 my-2 border-0 pt-2">
-            <img src="" class="card-img-top" alt="">
+            <a  class="img-a" target="_blank"><img src="" class="card-img-top" border="0" alt=""></a>
             <div class="card-body pb-0">
-                <a class="product_link" href=""><h5 class="card-title"></h5></a>
-                <p class="card-text"></p>
+                <a class="product_link" target="_blank" ><h5 class="card-title"></h5></a>
+                <p class="card-text-inf"></p>
+                <p class="m-0">使用技術：</p>
+                <p class="card-text-type"></p>
             </div>
         </div>
     </template>
@@ -60,14 +63,18 @@
             
             Array.forEach((item) => {
                 let cloneContent = template.content.cloneNode(true);
+                let img_link= cloneContent.querySelector('.img-a');
                 let img = cloneContent.querySelector('.card-img-top');
                 let title = cloneContent.querySelector('.card-title');
-                let p = cloneContent.querySelector('.card-text');
+                let inf = cloneContent.querySelector('.card-text-inf');
+                let type = cloneContent.querySelector('.card-text-type');
                 let link = cloneContent.querySelector('.product_link');
 
                 img.setAttribute('src',`${item.Img}`);
                 title.innerText=item.Name;
-                // p.innerText=item.Information;
+                inf.innerText=item.Information;
+                type.innerText=item.Type;
+                img_link.setAttribute('href',item.url);
                 link.setAttribute('href',item.url);
                 row.appendChild(cloneContent);
             })
