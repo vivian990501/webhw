@@ -10,7 +10,9 @@
 
 .information .container
 {
-    width: 100%;
+    max-width: 1355px;
+    margin: auto;
+
 }
 .information .container .row
 {

@@ -2,18 +2,22 @@
 {
     padding: 75px 0;
     width: 100%;
+    background-color:#F5F5F5;
 }
 
 .history .container
 {
     width: 100%;
     max-width: 1355px;
+    margin: auto;
+
 }
 .history .container .row
 {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    
 }
 .history .container .row .pic
 {

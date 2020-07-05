@@ -16,8 +16,9 @@
     /* padding: 8px 10px; */
     text-align: center;
     z-index: 1;
-    
+
 }
+
 
 .contact-info .address
 {
@@ -259,11 +260,11 @@ input:checked~label {
         display: flex;
         justify-content: space-between;
     }
-    .contact-info .adderss-phone
+    .adderss-phone
     {
         display: flex;
         /* margin: 0px 15px; */
-        
+        justify-content: start;
     }
     .background-pic
     {
@@ -286,7 +287,14 @@ input:checked~label {
         display: flex;
 
     }
-
+    .container-info 
+    {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin: auto;
+        max-width: 1355px;
+    }
     .logo{
         width: 30%;
     }
@@ -322,6 +330,11 @@ input:checked~label {
         left: 0;
         right: 0;
     } 
+    .navigation-logo-search
+    {
+        margin: auto;
+        max-width: 1355px;
+    }
 }
 
 .to-top button
