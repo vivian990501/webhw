@@ -79,4 +79,8 @@
     right: 80px;
     color: #fff;
 }
+.Big-Banner .txt
+{
+    max-width: 1730px;
+}
 }
