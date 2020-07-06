@@ -291,7 +291,7 @@ input:checked~label {
     {
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         margin: auto;
         max-width: 1355px;
     }

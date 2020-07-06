@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.content {
+    margin: auto;
+}
+
+.item {
+    width: 960px;
+    /* background-color: aquamarine; */
+    margin: auto;
+    position: relative;
+    margin-top: 20px;
+}
+
+.item .blank {
+    width: 518px;
+    padding-bottom: 413px;
+    position: absolute;
+    right: 170px;
+    top: 55px;
+    background-color: #EEEEEE;
+}
+
+.item .fun {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.item .car {
+    margin: auto;
+    position: relative;
+    top: 136.5px;
+    left: 180px;
+}
+
+.item .car .button {
+    position: absolute;
+    top: 46%;
+    z-index: 1;
+    right: 255px;
+}
+
+.item .Introduction {
+    position: relative;
+    z-index: 1;
+    margin-left: 40px;
+    margin-top: 105px;
+}
+
+.item2 {
+    width: 960px;
+    /* background-color: aquamarine; */
+    margin: auto;
+    position: relative;
+    margin-top: 20px;
+}
+
+.item2 .blank {
+    width: 518px;
+    padding-bottom: 413px;
+    position: absolute;
+    right: 170px;
+    top: 55px;
+    background-color: #EEEEEE;
+}
+
+.item2 .fun {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.item2 .car {
+    margin: auto;
+    position: relative;
+    top: 136.5px;
+    /* left: 180px; */
+}
+
+.item2 .car .button {
+    position: absolute;
+    top: 46%;
+    z-index: 1;
+    left: -9px;
+}
+
+.item2 .Introduction {
+    position: relative;
+    z-index: 1;
+    margin-left: 280px;
+    margin-top: 105px;
+}
