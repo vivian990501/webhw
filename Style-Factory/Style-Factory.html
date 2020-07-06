@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/Style-Factory/fontawesome-free-5.13.0-web/css/all.css">
     <link rel="stylesheet" href="Style-Factory-css/Style-Factory-header.css">
     <link rel="stylesheet" href="Style-Factory-css/Style-Factory-Nav-Bar.css">
@@ -37,8 +36,7 @@
                 <div class="col-12 d-flex justify-content-between align-items-center">
                     <div class="item">
                         <div class="dropdown">
-                            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bars"></i>
                             </button class="list">
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -63,18 +61,18 @@
                         </div>
                     </div>
                     <div class="item  shopping ml-auto">
-                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i><span clas="shopping_count">0</span></a>
                     </div>
                     <div class="item ml-3">
                         <form>
-                            <input type="search" placeholder="Search" aria-label="Search Store">
-                            <button class="btn " type="submit">
+                            <input type="search" placeholder="Search Store"  class="border-0">
+                            <button class="btn search_button" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
         </section>
         <section class="container Logo">
             <div class="row text-center position-relative ">
@@ -101,17 +99,13 @@
                 <div class="col-12 px-0">
                     <nav class="navbar navbar-expand-lg navbar-light ">
                         <a class="navbar-brand d-lg-none" href="#">STYLE FACTORY</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                            aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fas fa-angle-down"></i>
                         </button>
                         <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link d-flex justify-content-between" href="#"
-                                        id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link d-flex justify-content-between" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         HOME
                                         <span class="d-lg-none"><i class="fas fa-angle-down"></i></span>
                                     </a>
@@ -122,9 +116,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link d-flex justify-content-between" href="#"
-                                        id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link d-flex justify-content-between" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         PRODUCTS
                                         <span class="d-lg-none"><i class="fas fa-angle-down"></i></span>
                                     </a>
@@ -135,9 +127,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link d-flex justify-content-between" href="#"
-                                        id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link d-flex justify-content-between" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         BLOG
                                         <span class="d-lg-none"><i class="fas fa-angle-down"></i></span>
                                     </a>
@@ -148,9 +138,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link d-flex justify-content-between" href="#"
-                                        id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link d-flex justify-content-between" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         SALE
                                         <span class="d-lg-none"><i class="fas fa-angle-down"></i></span>
                                     </a>
@@ -160,11 +148,11 @@
                                         <a class="dropdown-item" href="#">Something else here</a>
                                     </div>
                                 </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">ABOUTS US <span class="sr-only">(current)</span></a>
+                                <li class="nav-item active" >
+                                    <a class="nav-link" id="navbarDropdownMenuLink" href="#">ABOUTS US <span class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">COUNTACT US <span class="sr-only">(current)</span></a>
+                                <li class="nav-item active" >
+                                    <a class="nav-link" id="navbarDropdownMenuLink" href="#">COUNTACT US <span class="sr-only">(current)</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -182,9 +170,8 @@
                                 <h3>JOIN OUR <b>DISCOUNT</b> CLUB & <b>SAVE 25%</b> ON EVERYTHING!</h3>
                             </div>
                             <div class="txt-p2 position-absolute  ">
-                                <p>We offer a broad assortment of the best and latest styles from the finest brands.
-                                    Only at Style Factory, you will find so many exclusive images, videos, customer
-                                    reviews and expert tips to help you choose the perfect styles and colors.</p>
+                                <p>We offer a broad assortment of the best and latest styles from the finest brands. Only at Style Factory, you will find so many exclusive images, videos, customer reviews and expert tips to help you choose the perfect styles
+                                    and colors.</p>
                             </div>
                             <div class="txt-a  text-center">
                                 <a href="#" class="position-absolute text-center">
@@ -266,7 +253,7 @@
                     <a href="#">
                         <div class="card  mx-auto w-100" style="width:19rem;">
                             <img src="Style-Factory-photos/20200320_200320_0016.jpg" class="card-img-top" alt="男模特兒">
-                            <div class="card-body text-center">
+                            <div class="card-body text-center position-relative">
                                 <h5 class="card-title pt-4">MEN'S HAIR CARE</h5>
                                 <a href="#" class="btn btn-products px-3 py-2 my-3">7 products</a>
                             </div>
@@ -317,14 +304,11 @@
                     <div class="card w-100 mx-auto p-3 h-100 d-flex position-relative">
                         <span class="logo-new position-absolute"><strong>new</strong></span>
                         <div class="pic col-xl-12 col-3">
-                            <img src="Style-Factory-photos/20200320_200320_0023.jpg" class="card-img-top w-100"
-                                alt="摩洛哥堅果油髮膜">
+                            <img src="Style-Factory-photos/20200320_200320_0023.jpg" class="card-img-top w-100" alt="摩洛哥堅果油髮膜">
                         </div>
                         <div class="card-body col-9 col-lg-12 text-center w-100">
                             <h5 class="card-title text-center"><a href="#">Argan Oil Hair Mask</a></h5>
-                            <p class="card-text text-center d-lg-none">We know that some hair seems to be bad-tempered
-                                For saving your time, please use filters: brand, concerns, formulation, ingredient
-                                preferences, siz...</p>
+                            <p class="card-text text-center d-lg-none">We know that some hair seems to be bad-tempered For saving your time, please use filters: brand, concerns, formulation, ingredient preferences, siz...</p>
                             <span class="d-block text-center"><strong class="price-sales">$60.00</strong></span>
                             <a href="#" class="btn d-inline-block add-shopping">Add to cart</a>
                             <div class="icon pt-3 text-center">
@@ -340,14 +324,11 @@
                         <span class="logo-new position-absolute"><strong>new</strong></span>
                         <span class="logo-sales position-absolute d-none d-lg-inline-block"><strong>-10%</strong></span>
                         <div class="pic col-xl-12 col-3">
-                            <img src="Style-Factory-photos/20200320_200320_0022.jpg" class="card-img-top w-100"
-                                alt="卡尼爾·弗魯蒂斯">
+                            <img src="Style-Factory-photos/20200320_200320_0022.jpg" class="card-img-top w-100" alt="卡尼爾·弗魯蒂斯">
                         </div>
                         <div class="card-body col-9 col-lg-12 w-100 text-center">
                             <h5 class="card-title text-center"><a href="#">Garnier Fructis</a></h5>
-                            <p class="card-text text-center d-lg-none">Hairspray and Styling Products Coco Chanel said
-                                that a woman who cuts her hair is about to change her life. We’ll add that a woman who
-                                does anythin...</p>
+                            <p class="card-text text-center d-lg-none">Hairspray and Styling Products Coco Chanel said that a woman who cuts her hair is about to change her life. We’ll add that a woman who does anythin...</p>
                             <span class="d-block text-center">From <strong class="price-sales">$90.00</strong></span>
                             <span class="d-block text-center"><strong class="price-not">$100.00</strong></span>
                             <a href="#" class="btn d-inline-block add-shopping">Add to cart</a>
@@ -363,14 +344,11 @@
                     <div class="card w-100 mx-auto p-3 h-100 d-flex position-relative">
                         <span class="logo-new position-absolute"><strong>new</strong></span>
                         <div class="pic col-xl-12 col-3">
-                            <img src="Style-Factory-photos/20200320_200320_0020.jpg" class="card-img-top w-100"
-                                alt="草本精華">
+                            <img src="Style-Factory-photos/20200320_200320_0020.jpg" class="card-img-top w-100" alt="草本精華">
                         </div>
                         <div class="card-body col-9 col-lg-12 w-100 text-center">
                             <h5 class="card-title text-center"><a href="#">Herbal Essences</a></h5>
-                            <p class="card-text text-center d-lg-none">Hairspray and Styling Products Coco Chanel said
-                                that a woman who cuts her hair is about to change her life. We’ll add that a woman who
-                                does anythin...</p>
+                            <p class="card-text text-center d-lg-none">Hairspray and Styling Products Coco Chanel said that a woman who cuts her hair is about to change her life. We’ll add that a woman who does anythin...</p>
                             <span class="d-block text-center"><strong class="price-sales">$80.00</strong></span>
                             <a href="#" class="btn d-inline-block add-shopping">Add to cart</a>
                             <div class="icon pt-3 text-center">
@@ -386,14 +364,11 @@
                         <span class="logo-new position-absolute"><strong>new</strong></span>
                         <span class="logo-sales position-absolute d-none d-lg-inline-block"><strong>-10%</strong></span>
                         <div class="pic col-xl-12 col-3">
-                            <img src="Style-Factory-photos/20200320_200320_0018.jpg" class="card-img-top w-100"
-                                alt="歐萊雅巴黎工作室線">
+                            <img src="Style-Factory-photos/20200320_200320_0018.jpg" class="card-img-top w-100" alt="歐萊雅巴黎工作室線">
                         </div>
                         <div class="card-body col-9 col-lg-12 w-100 text-center">
                             <h5 class="card-title text-center"><a href="#">L'Oreal Paris Studio Line</a></h5>
-                            <p class="card-text text-center d-lg-none">We know that some hair seems to be bad-tempered
-                                For saving your time, please use filters: brand, concerns, formulation, ingredient
-                                preferences, siz...</p>
+                            <p class="card-text text-center d-lg-none">We know that some hair seems to be bad-tempered For saving your time, please use filters: brand, concerns, formulation, ingredient preferences, siz...</p>
                             <span class="d-block text-center">From <strong class="price-sales">$90.00</strong> </span>
                             <span class="d-block text-center"><strong class="price-not">$100.00</strong></span>
                             <a href="#" class="btn d-inline-block add-shopping">Add to cart</a>
@@ -505,8 +480,7 @@
                                 </a>
                             </h5>
                             <p class="card-text">
-                                For saving your time, please use filters: brand, concerns, formulation, ingredient
-                                preferences,...
+                                For saving your time, please use filters: brand, concerns, formulation, ingredient preferences,...
                             </p>
                             <a href="#" class="btn">Read more</a>
                         </div>
@@ -524,15 +498,12 @@
                         <span class="logo-new position-absolute"><strong>new</strong></span>
                         <span class="logo-sales position-absolute d-none d-lg-inline-block"><strong>-38%</strong></span>
                         <div class="pic col-xl-12 col-3">
-                            <img src="Style-Factory-photos/20200320_200320_0009.jpg" class="card-img-top w-100"
-                                alt="吹風機">
+                            <img src="Style-Factory-photos/20200320_200320_0009.jpg" class="card-img-top w-100" alt="吹風機">
                         </div>
                         <div class="card-body w-100 col-9 col-lg-12 text-center p-0 pt-4">
                             <h5 class="card-title text-center"><a href="#">Infiniti Pro by Conair Hair Designer 3 in 1
                                     Sty...</a></h5>
-                            <p class="card-text text-center d-lg-none">We know that some hair seems to be bad-tempered
-                                For saving your time, please use filters: brand, concerns, formulation, ingredient
-                                preferences, siz...</p>
+                            <p class="card-text text-center d-lg-none">We know that some hair seems to be bad-tempered For saving your time, please use filters: brand, concerns, formulation, ingredient preferences, siz...</p>
                             <div class="price">
                                 <span class="d-inlne-block text-center"><strong>$50.00</strong></span>
                                 <span class="d-inlne-block text-center"><strong class="price-not">$80.00</strong></span>
@@ -550,14 +521,11 @@
                     <div class="card w-100 mx-auto p-3 h-100 d-flex position-relative">
                         <span class="logo-new position-absolute"><strong>new</strong></span>
                         <div class="pic col-xl-12 col-3">
-                            <img src="Style-Factory-photos/20200320_200320_0007.jpg" class="card-img-top w-100"
-                                alt="電棒捲">
+                            <img src="Style-Factory-photos/20200320_200320_0007.jpg" class="card-img-top w-100" alt="電棒捲">
                         </div>
                         <div class="card-body w-100 col-9 col-lg-12 text-center p-0 pt-4">
                             <h5 class="card-title text-center"><a href="#">Garnier Fructis</a></h5>
-                            <p class="card-text text-center d-lg-none">They will style the hair-do for as long as you
-                                need Whoever you are, a professional hair stylist or a person who professionally cares
-                                about his hai...</p>
+                            <p class="card-text text-center d-lg-none">They will style the hair-do for as long as you need Whoever you are, a professional hair stylist or a person who professionally cares about his hai...</p>
                             <span class="d-block text-center"><strong>$90.00</strong></span>
                             <a href="#" class="btn d-inline-block add-shopping">Add to cart</a>
                             <div class="icon pt-3 text-center">
@@ -572,14 +540,11 @@
                     <div class="card w-100 mx-auto p-3 h-100 d-flex position-relative">
                         <span class="logo-new position-absolute"><strong>new</strong></span>
                         <div class="pic col-xl-12 col-3">
-                            <img src="Style-Factory-photos/20200320_200320_0005.jpg" class="card-img-top w-100"
-                                alt="離子夾">
+                            <img src="Style-Factory-photos/20200320_200320_0005.jpg" class="card-img-top w-100" alt="離子夾">
                         </div>
                         <div class="card-body w-100 col-9 col-lg-12 text-center p-0 pt-4">
                             <h5 class="card-title text-center"><a href="#">Herbal Essences</a></h5>
-                            <p class="card-text text-center d-lg-none">Take your hair to a next level with our hair
-                                sprays Whoever you are, a professional hair stylist or a person who professionally cares
-                                about his hai...</p>
+                            <p class="card-text text-center d-lg-none">Take your hair to a next level with our hair sprays Whoever you are, a professional hair stylist or a person who professionally cares about his hai...</p>
                             <span class="d-block text-center"><strong>$80.00</strong></span>
                             <a href="#" class="btn d-inline-block add-shopping">Add to cart</a>
                             <div class="icon pt-3 text-center">
@@ -595,14 +560,11 @@
                         <span class="logo-new position-absolute"><strong>new</strong></span>
                         <span class="logo-sales position-absolute d-none d-lg-inline-block"><strong>-14%</strong></span>
                         <div class="pic col-xl-12 col-3">
-                            <img src="Style-Factory-photos/20200320_200320_0003.jpg" class="card-img-top w-100"
-                                alt="梳子">
+                            <img src="Style-Factory-photos/20200320_200320_0003.jpg" class="card-img-top w-100" alt="梳子">
                         </div>
                         <div class="card-body w-100 col-9 col-lg-12 text-center p-0 pt-4">
                             <h5 class="card-title text-center"><a href="#">L'Oreal Paris Studio Line</a></h5>
-                            <p class="card-text text-center d-lg-none">Take your hair to a next level with our hair
-                                sprays Whoever you are, a professional hair stylist or a person who professionally cares
-                                about his hai...</p>
+                            <p class="card-text text-center d-lg-none">Take your hair to a next level with our hair sprays Whoever you are, a professional hair stylist or a person who professionally cares about his hai...</p>
                             <div class="price">
                                 <span class="d-inlne-block text-center"><strong>$90.00</strong> </span>
                                 <span class="d-inline-block text-center"><strong
@@ -632,8 +594,7 @@
                     <h3 class="my-3">GET OUR SPECIAL OFFERS</h3>
                     <h4 class="my-3">AND THE ULTIMATE HAIR CARE TIPS & TRICKS!</h4>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Enter your email"
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="text" class="form-control" placeholder="Enter your email" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
                             <button class="btn ml-2" type="button" id="button-addon2">Subscribe</button>
                         </div>
@@ -650,80 +611,80 @@
             </div>
         </section>
         <section class="Map container">
-                <div class="row mx-auto py-1">
-                    <map class="col-6 mx-auto position-relative">
+            <div class="row mx-auto py-1">
+                <map class="col-6 mx-auto position-relative">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.1182203516955!2d120.95007521431786!3d24.75713545548961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34684a5cb60622fd%3A0xb0ead5088c97b0db!2z5Lit6I-v5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1584885648772!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" class="position-relative"></iframe>
                     </map>
-                </div>
+            </div>
         </section>
         <section class="Information container ">
-                <div class="row mx-lg-5 pt-5">
-                    <div class="col-12 col-xl-3 mx-auto">
-                        <div class="committed">
-                            <div class="pic">
-                                <img src="https://cdn.shopify.com/s/files/1/1711/1759/t/2/assets/footer_logo.png?v=15429984064853762523" alt="logo">
-                            </div>
-                            <div class="txt my-3">
-                                <p>This web store was originally launched in 2002 and was then titled the Style Factory. This name was a perfect fit then, simply because we’ve always had our focus on our hair care & hair treatment products lineup.</p>
-                            </div>
+            <div class="row mx-lg-5 pt-5">
+                <div class="col-12 col-xl-3 mx-auto">
+                    <div class="committed">
+                        <div class="pic">
+                            <img src="https://cdn.shopify.com/s/files/1/1711/1759/t/2/assets/footer_logo.png?v=15429984064853762523" alt="logo">
+                        </div>
+                        <div class="txt my-3">
+                            <p>This web store was originally launched in 2002 and was then titled the Style Factory. This name was a perfect fit then, simply because we’ve always had our focus on our hair care & hair treatment products lineup.</p>
                         </div>
                     </div>
-                    <div class="col-12 col-xl-3">
-                        <div class="navigtion">
-                            <div class="title">
-                                <h3>CATEGORIES</h3>
-                            </div>
-                            <div class="txt ">
-                                <ul class= "pl-0">
-                                    <li><a href="#">Hair Styling</a></li>
-                                    <li><a href="#">Men's Hair Care</a></li>
-                                    <li><a href="#">Hair Care For Kids</a></li>
-                                    <li><a href="#">Hair Health Treatment</a></li>
-                                    <li><a href="#">Featured Products</a></li>
-                                    <li><a href="#">Sale</a></li>
-                                </ul>
-                            </div>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="navigtion">
+                        <div class="title">
+                            <h3>CATEGORIES</h3>
+                        </div>
+                        <div class="txt ">
+                            <ul class="pl-0">
+                                <li><a href="#">Hair Styling</a></li>
+                                <li><a href="#">Men's Hair Care</a></li>
+                                <li><a href="#">Hair Care For Kids</a></li>
+                                <li><a href="#">Hair Health Treatment</a></li>
+                                <li><a href="#">Featured Products</a></li>
+                                <li><a href="#">Sale</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-12 col-xl-3">
-                        <div class="navigtion">
-                            <div class="title">
-                                <h3>MENU</h3>
-                            </div>
-                            <div class="txt">
-                                <ul class="pl-0">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Catalog</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">Wishlist</a></li>
-                                    <li><a href="#">Sitemap</a></li>
-                                </ul>
-                            </div>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="navigtion">
+                        <div class="title">
+                            <h3>MENU</h3>
+                        </div>
+                        <div class="txt">
+                            <ul class="pl-0">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Catalog</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="#">Sitemap</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-12 col-xl-3">
-                        <div class="contacts">
-                            <div class="title">
-                                <h3>CONTACTS</h3>
-                                <h3>INFORMATION</h3>
-                            </div>
-                            <div class="txt">
-                                <div class="address">
-                                    <address>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="contacts">
+                        <div class="title">
+                            <h3>CONTACTS</h3>
+                            <h3>INFORMATION</h3>
+                        </div>
+                        <div class="txt">
+                            <div class="address">
+                                <address>
                                         4578 Marmora Road, Glasgow D04 89GR
                                     </address>
-                                </div>
-                                <div class="phones">
-                                        <span>1(234) 567-9842</span>
-                                </div>
-                                <div class="email">
-                                    <a href="#">info@demolink.org</a>
-                                </div>
+                            </div>
+                            <div class="phones">
+                                <span>1(234) 567-9842</span>
+                            </div>
+                            <div class="email">
+                                <a href="#">info@demolink.org</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     </main>
     <footer>
@@ -731,7 +692,7 @@
             <div class="row mx-auto">
                 <div class="col-12 my-3">
                     <div class="txt pl-5">
-                        &copy; 2020 Style Factory. All rights reserved. 
+                        &copy; 2020 Style Factory. All rights reserved.
                         <a href="#">Powered by Shopify</a>
                     </div>
                 </div>
@@ -740,15 +701,9 @@
     </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>

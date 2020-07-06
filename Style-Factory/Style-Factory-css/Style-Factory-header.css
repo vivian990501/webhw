@@ -1,33 +1,76 @@
-*
-{
+* {
     list-style: none;
 }
+
 .container {
     width: 100%;
     max-width: 100%;
-  }
-.NavBar a
-{
+}
+
+.NavBar a {
     color: #000;
 }
 
-.Logo .community a{
+.Logo .community a {
     color: #b9b9b9;
     text-decoration: none;
     font-size: 16px;
 }
-.Logo .community
-{
-    justify-content:center;
+
+.Logo .community {
+    justify-content: center;
 }
-@media screen and (min-width:992px )
+
+.shopping a {
+    color: #000;
+    text-decoration: none;
+}
+
+.shopping a span
 {
-    .Logo .community 
-    {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: bold;
+    padding: 1px 5px;
+    border: 1px solid #181a1f;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    vertical-align: top;
+}
+.shopping a :hover
+{
+    color: #ffa396;
+} 
+.shopping a :hover .shopping_count
+{
+    color: #ffa396;
+}
+.search_button:hover
+{
+    color: #ffa396;
+}
+.community a:hover
+{
+    color: #181a1f;
+}
+
+#navbarDropdownMenuLink:hover{
+    color: #ffa396;
+}
+.nav-link:hover{
+    color: #ffa396;
+}
+.collapse .nav-item:first-child a:first-child#navbarDropdownMenuLink
+{
+    color: #ffa396;
+}
+@media screen and (min-width:992px) {
+    .Logo .community {
         position: absolute;
         bottom: 0;
         right: 20px;
-        
     }
-    
 }
+
+

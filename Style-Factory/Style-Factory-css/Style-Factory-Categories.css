@@ -32,6 +32,25 @@
 {
     color: #000;
 }
+
+.Categories .card:hover
+{
+    background: #feede9;
+}
+.Categories .card-body:hover{
+    border-top: #000 solid;
+} 
+/* .Categories .card-body ::before 
+{
+    content: '';
+    height:  3px;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    right: 40%;
+    left: 40%;
+} */
+
 @media screen and (min-width:992px)
 {
     .Categories .txt
